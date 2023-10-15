@@ -255,7 +255,7 @@ html {
 
         .content2__li {
             display: flex;
-             flex-basis: 30rem;
+             flex-basis: 35rem;
 
             flex-grow: 1;
             flex-shrink: 1;
@@ -286,6 +286,17 @@ html {
         }
     }
 }
+
+@media (max-width:1075px) {
+
+    .content2__section {
+        .content2__ul {
+            .content2__li {
+                flex-basis: 30rem;      
+            }
+        }
+    }
+ }
 
 @media (max-width:941px) {
 
