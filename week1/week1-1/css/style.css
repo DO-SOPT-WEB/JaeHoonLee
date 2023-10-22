@@ -139,6 +139,7 @@ html {
   top: 0;
   align-items: center;
   justify-content: center;
+  z-index: 1;
   margin-top: 3rem;
   background: radial-gradient(circle, #eeaeca 0%, rgb(148, 187, 233) 100%);
   width: 150rem;
