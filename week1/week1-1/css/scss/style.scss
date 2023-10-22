@@ -184,7 +184,7 @@ html {
 
     margin-top: 3rem;
     background: radial-gradient(circle, #eeaeca 0%, rgba(148, 187, 233, 1) 100%);
-    width: 150rem;
+    width: 350rem;
     height: 4rem;
     color: purple;
 }
@@ -216,7 +216,7 @@ html {
             flex-grow: 1;
             flex-shrink: 1;
             justify-content: center;
-
+            max-height: 30rem;
             .content__img {
                 width: 100%;
                 height: 100%;
@@ -226,7 +226,13 @@ html {
     }
 }
 
-
+.content2__main__section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 150rem;
+}
 .content2__section {
     display: flex;
     gap: 1rem;
@@ -240,7 +246,7 @@ html {
 
     .main__article {
         width: 600rem;
-
+  
         img {
             width: 100%;
             height: 100%;
@@ -288,7 +294,7 @@ html {
     }
 }
 
-@media (max-width:1075px) {
+@media (max-width:1089px) {
 
     .content2__section {
         .content2__ul {
