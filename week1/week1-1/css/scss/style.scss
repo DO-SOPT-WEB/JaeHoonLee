@@ -190,10 +190,7 @@ html {
 }
 
 .content__section {
-
     display: flex;
- 
-  
     align-items: center;
     justify-content: center;
     margin-bottom: 3rem;
@@ -201,9 +198,7 @@ html {
     padding-right: 2rem;
     padding-left: 2rem;
     max-width: 140rem;
-
     height: fit-content;
-
     .content__ul {
         display: flex;
         flex-wrap: wrap;
