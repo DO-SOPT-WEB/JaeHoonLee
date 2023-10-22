@@ -5,10 +5,7 @@
   "repository": "https://github.com/DO-SOPT-WEB/JaehoonLee.git",
   "author": "ljh0608 <m98m@catholic.ac.kr>",
   "license": "MIT",
-  "dependencies": {
-    "node-sass": "^9.0.0",
-    "sass": "^1.69.2"
-  },
+
   "devDependencies": {
     "stylelint": "^15.10.3",
     "stylelint-config-concentric-order": "^5.2.0",
