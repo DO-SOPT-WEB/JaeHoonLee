@@ -178,12 +178,13 @@ html {
   height: 100%;
 }
 
-.content2__main__section {
+.content__main__section {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 150rem;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .content2__section {
