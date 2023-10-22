@@ -170,9 +170,7 @@ main {
   width: 90%;
   height: 6rem;
   color: white;
-}
-.withdraw__section .withdraw__ul .withdraw__li article {
-  font-size: 1.4rem;
+  font-size: 2.2rem;
 }
 .withdraw__section .withdraw__ul .withdraw__li .title__article {
   width: 15rem;
