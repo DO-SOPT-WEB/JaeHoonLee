@@ -21,9 +21,9 @@ html {
     align-items: center;
     justify-content: center;
     transition: 0.4s ease-out;
+    z-index: 2;
     border-radius: 100rem;
     background: radial-gradient(circle, #eeaeca 0%, rgba(148, 187, 233, 1) 100%);
-
     cursor: pointer;
     width: 5rem;
     height: 5rem;
