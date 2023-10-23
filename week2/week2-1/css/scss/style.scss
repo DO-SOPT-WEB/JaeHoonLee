@@ -106,10 +106,8 @@ html {
             height: 26rem;
             .dim__explan{
                 position: absolute;
-                opacity: 0;
-                a{
-                    width: 16rem;
-                }
+                 opacity: 0;
+            pointer-events: none;
             }
             
             article {
@@ -149,31 +147,39 @@ html {
 
         }
 
-        .item__li:hover {
+         .item__li:hover {
+        
         .dim__explan{
-            display: block;
+            display: flex;
             position: absolute;
             transition:all .3s linear;
             opacity: 1;
             border-radius: 6px;
             background-color: rgba(0, 0, 0, 0.5);
-            width: 100%;
+            width: 16rem;
             height:100%;
-            div{
+            .textbox {
                 display: flex;
                 position: absolute;
-                top:40%;
-
+                top:30%;
                 flex-direction: column;
                 gap:2rem;
-                width: 16rem;
+                align-items: center;
+        
+                width: 14rem;
+                height: 10rem;
+                text-align: center;
                 color:white;
-                h2{
-                    text-align: center;
-                }
-                p{
-                    flex-wrap: wrap;
-                    text-align: center;
+        
+                .subText{
+                    display: -webkit-box;
+                   height: 4.2rem;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: normal;
+                    font-size: 1.4rem;
+                    -webkit-line-clamp: 3 ;
+                    -webkit-box-orient: vertical;
                 }
             }
         }

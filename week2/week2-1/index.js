@@ -7,7 +7,6 @@ function handleScroll(){
 
     top_btn.style.opacity=`${positionY/(document.body.clientHeight - 
         windowY)}`;
-
 }
 
 window.addEventListener("scroll",handleScroll);
