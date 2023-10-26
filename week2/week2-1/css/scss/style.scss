@@ -82,6 +82,8 @@ html {
   .scrollBar::-webkit-scrollbar-track {
       background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
   }
+
+
     .all-item__ul {
         display: flex;
         align-items: center;
@@ -105,9 +107,14 @@ html {
             width: 22rem;
             height: 26rem;
             .dim__explan{
+         
                 position: absolute;
                  opacity: 0;
-            pointer-events: none;
+           
+                .textbox{
+                    width: 14rem;
+                    height: 10rem;
+                }
             }
             
             article {
@@ -158,6 +165,8 @@ html {
             background-color: rgba(0, 0, 0, 0.5);
             width: 16rem;
             height:100%;
+            
+          
             .textbox {
                 display: flex;
                 position: absolute;
@@ -166,13 +175,14 @@ html {
                 gap:2rem;
                 align-items: center;
         
-                width: 14rem;
-                height: 10rem;
+            
                 text-align: center;
+        
                 color:white;
         
                 .subText{
                     display: -webkit-box;
+                   width: 13rem;
                    height: 4.2rem;
                     overflow: hidden;
                     text-overflow: ellipsis;
@@ -181,11 +191,25 @@ html {
                     -webkit-line-clamp: 3 ;
                     -webkit-box-orient: vertical;
                 }
+             
+            }
+            .show_more_btn{
+                position: absolute;
+                bottom: 5rem;
+         
+                background-color:white;
+                width: 7rem;
+                height: 3rem;
+                color:grey;
+                
             }
         }
     }
     }
 }
+
+
+
 
 .routing__nav {
     display: flex;

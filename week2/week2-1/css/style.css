@@ -88,7 +88,10 @@ html {
 .all-item__section .all-item__ul .item__li .dim__explan {
   position: absolute;
   opacity: 0;
-  pointer-events: none;
+}
+.all-item__section .all-item__ul .item__li .dim__explan .textbox {
+  width: 14rem;
+  height: 10rem;
 }
 .all-item__section .all-item__ul .item__li article {
   display: flex;
@@ -134,13 +137,12 @@ html {
   flex-direction: column;
   gap: 2rem;
   align-items: center;
-  width: 14rem;
-  height: 10rem;
   text-align: center;
   color: white;
 }
 .all-item__section .all-item__ul .item__li:hover .dim__explan .textbox .subText {
   display: -webkit-box;
+  width: 13rem;
   height: 4.2rem;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -148,6 +150,14 @@ html {
   font-size: 1.4rem;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+.all-item__section .all-item__ul .item__li:hover .dim__explan .show_more_btn {
+  position: absolute;
+  bottom: 5rem;
+  background-color: white;
+  width: 7rem;
+  height: 3rem;
+  color: grey;
 }
 
 .routing__nav {
