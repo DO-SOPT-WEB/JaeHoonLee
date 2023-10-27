@@ -217,10 +217,6 @@ function updateSelectOptions(isChecked, option1, option2) {
  * 내역 추가 기능 구현
  */
 
-function handleMoney(){
-
-}
-// 저장 버튼을 클릭할 때 이벤트 핸들러를 등록합니다.
 document.querySelector('.submitBtn').addEventListener('click', function() {
   
     const type = document.querySelector('input[name="type"]:checked').value;
@@ -253,3 +249,16 @@ document.querySelector('.submitBtn').addEventListener('click', function() {
    document.querySelector('.moneyInput').value = '';
    document.querySelector('.titleInput').value = '';
 });
+
+// 추가 input 숫자에 , 넣기
+const input = document.querySelector('.moneyInput');
+input.addEventListener('keyup', function(e) {
+  let value = e.target.value;
+  value = Number(value.replaceAll(',', ''));
+  if(isNaN(value)) {
+    input.value = 0;
+  }else {
+    const formatValue = value.toLocaleString('ko-KR');
+    input.value = formatValue;
+  }
+})
