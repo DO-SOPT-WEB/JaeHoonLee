@@ -118,18 +118,43 @@ income_checkbox.addEventListener('change', updateFilteredHistory);
 /**
  * 삭제 버튼 기능 구현
  */
+    const deleteModal=document.querySelector(".deleteModal");
+    const deleteBtn=document.querySelector(".deleteBtn");
+    const closeDeleteBtn=document.querySelector(".closeDeleteBtn");
 
+function deleteModalOpen(target){
+  deleteModal.style.display="flex"
+  deleteBtn.addEventListener("click",()=>deleteHistory(target));
+  
+}
+function deleteModalClose(){
+    deleteModal.style.display="none"
+    
+  }
+function deleteHistory(target){
+    const listItem = target.parentElement;
+    console.log(listItem);
 
+    const index = Array.from(listItem.parentElement.children).indexOf(listItem);
+    
+    filteredHistory.splice(index, 1);
+    if (listItem && listItem.parentElement) {
+        listItem.parentElement.removeChild(listItem);
+    }
+    deleteModalClose();
+    renderWithdrawList(filteredHistory);
+
+}
+
+closeDeleteBtn.addEventListener("click",deleteModalClose);
 
 withdrawUl.addEventListener('click', function(event) {
     const target = event.target;
+
     if (target.classList.contains('delete-btn')) {
-        const listItem = target.parentElement;
-        const index = Array.from(listItem.parentElement.children).indexOf(listItem);
         
-        filteredHistory.splice(index, 1);
-        
-        renderWithdrawList(filteredHistory);
+        deleteModalOpen(target);      
+
     }
 });
 
@@ -140,10 +165,13 @@ withdrawUl.addEventListener('click', function(event) {
 const modal=document.querySelector(".modal");
 const closeBtn=document.querySelector(".closeBtn");
 
+  
 function openModal(){
     modal.style.display = 'flex';
+     
 }
 function closeModal(){
+     
     modal.style.display="none";
 }
 
@@ -194,7 +222,7 @@ function handleMoney(){
 }
 // 저장 버튼을 클릭할 때 이벤트 핸들러를 등록합니다.
 document.querySelector('.submitBtn').addEventListener('click', function() {
-    // 모달 안의 요소들을 선택합니다.
+  
     const type = document.querySelector('input[name="type"]:checked').value;
     console.log(type)
     const category = document.querySelector('.category').value;
@@ -202,14 +230,13 @@ document.querySelector('.submitBtn').addEventListener('click', function() {
     const money = parseInt(document.querySelector('.moneyInput').value);
     console.log(money)
     const name = document.querySelector('.titleInput').value;
-    console.log(name);
-    // 입력값이 유효한지 확인합니다.
+     
     if (!type || !category || isNaN(money) || money <= 0 || !name) {
         alert("올바른 값을 입력하세요.");
         return;
     }
 
-    // 새로운 객체를 생성하고 filteredHistory 배열에 추가합니다.
+    
     const newEntry = {
         category: category,
         name: name,
@@ -218,9 +245,9 @@ document.querySelector('.submitBtn').addEventListener('click', function() {
     };
 
     alert("저장완료");
-    // 새로운 객체를 배열에 추가합니다.
     filteredHistory.push(newEntry);
 
  
     renderWithdrawList(filteredHistory);
+  
 });
