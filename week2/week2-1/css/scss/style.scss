@@ -67,21 +67,21 @@ html {
 
 
   
-  /* 아래의 모든 코드는 영역::코드로 사용 */
-  .scrollBar::-webkit-scrollbar {
-      width: 5px;  /* 스크롤바의 너비 */
-  }
+    /* 아래의 모든 코드는 영역::코드로 사용 */
+    .scrollBar::-webkit-scrollbar {
+        width: 5px;  /* 스크롤바의 너비 */
+    }
   
-  .scrollBar::-webkit-scrollbar-thumb {
+    .scrollBar::-webkit-scrollbar-thumb {
       
-      border-radius: 10px;
-      background: #217af4; /* 스크롤바의 색상 */
-      height: 20%; /* 스크롤바의 길이 */
-  }
+        border-radius: 10px;
+        background: #217af4; /* 스크롤바의 색상 */
+        height: 20%; /* 스크롤바의 길이 */
+    }
   
-  .scrollBar::-webkit-scrollbar-track {
-      background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
-  }
+    .scrollBar::-webkit-scrollbar-track {
+        background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
+    }
 
 
     .all-item__ul {
@@ -106,30 +106,23 @@ html {
             background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
             width: 22rem;
             height: 26rem;
-            .dim__explan{
-         
-                position: absolute;
-                 opacity: 0;
-           
-                .textbox{
-                    width: 14rem;
-                    height: 10rem;
-                }
+
+            .textbox{
+                display: none;
             }
-            
             article {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 padding-top: 1rem;
                 width: 16rem;
-
+        
                 .picture_img {
                     border-radius: 10px;
                     width: 14.5rem;
                     height: 18rem;
                 }
-
+        
                 .item-info__ul {
                     display: flex;
                     flex-direction: column;
@@ -138,73 +131,102 @@ html {
                     justify-content: center;
                     margin-top: 0.8rem;
                     border-radius: 10px;
-
+        
                     width: 14.5rem;
                     height: 6rem;
-
+        
                     li {
                         color: white;
                         font-size: 1.4rem;
                     }
                 }
-
-
-
-            }
-
-        }
-
-         .item__li:hover {
         
-        .dim__explan{
-            display: flex;
-            position: absolute;
-            transition:all .3s linear;
-            opacity: 1;
-            border-radius: 6px;
-            background-color: rgba(0, 0, 0, 0.5);
-            width: 16rem;
-            height:100%;
-            
-          
-            .textbox {
+        
+        
+            }
+            .dim__explan{
+         
+                position: absolute;
+                opacity: 0;
+           
+                .textbox{
+                    width: 14rem;
+                    height: 10rem;
+                   
+                }
+            }
+        }
+ 
+
+   
+        .item__li:hover{
+        
+            .dim__explan{
                 display: flex;
                 position: absolute;
-                top:30%;
-                flex-direction: column;
-                gap:2rem;
-                align-items: center;
-        
+                transition:all .3s linear;
+                opacity: 1;
+                border-radius: 6px;
+                background-color: rgba(0, 0, 0, 0.5);
+                width: 16rem;
+                height:100%;
             
-                text-align: center;
+          
+                .textbox {
+                    display: flex;
+                    position: absolute;
+                    top:30%;
+                    flex-direction: column;
+                    gap:1rem;
+                    align-items: center;
         
-                color:white;
-        
-                .subText{
-                    display: -webkit-box;
-                   width: 13rem;
-                   height: 4.2rem;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    white-space: normal;
-                    font-size: 1.4rem;
-                    -webkit-line-clamp: 3 ;
-                    -webkit-box-orient: vertical;
-                }
-             
-            }
-            .show_more_btn{
-                position: absolute;
-                bottom: 5rem;
-         
-                background-color:white;
-                width: 7rem;
-                height: 3rem;
-                color:grey;
+    
+                    width: 14rem;
+                    height: 20rem;
                 
+                    text-align: center;
+        
+                    color:white;
+        
+
+                    .subText{
+                        display: -webkit-box;
+                        width: 13rem;
+                 
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: normal;
+                        font-size: 1.4rem;
+                        -webkit-line-clamp: 3 ;
+                        -webkit-box-orient: vertical;
+                    }
+
+                    .show_more_btn{
+                        appearance: none;
+                        display: none;
+                        border: 2px solid white;
+                        border-radius: 0.25em;
+                        cursor: pointer;
+                        padding: 0.5em;
+                    }
+                    .show_more_btn::before{
+                        color:white;
+                        content: "더보기";   
+                    }
+                    .show_more_btn:checked::before{
+                        content: "닫기";   
+                    }
+
+                    .subText:has(+ .show_more_btn:checked){
+                        -webkit-line-clamp:unset;
+                        height: fit-content;
+                        max-height: 9.5rem;
+                    }
+             
+                }
+       
             }
         }
-    }
     }
 }
 
@@ -323,7 +345,7 @@ html {
 
         .content2__li {
             display: flex;
-             flex-basis: 35rem;
+            flex-basis: 35rem;
 
             flex-grow: 1;
             flex-shrink: 1;
@@ -364,7 +386,7 @@ html {
             }
         }
     }
- }
+}
 
 @media (max-width:941px) {
 
@@ -375,7 +397,7 @@ html {
             }
         }
     }
- }
+}
 
 @media (max-width:775px) {
 

@@ -85,13 +85,8 @@ html {
   width: 22rem;
   height: 26rem;
 }
-.all-item__section .all-item__ul .item__li .dim__explan {
-  position: absolute;
-  opacity: 0;
-}
-.all-item__section .all-item__ul .item__li .dim__explan .textbox {
-  width: 14rem;
-  height: 10rem;
+.all-item__section .all-item__ul .item__li .textbox {
+  display: none;
 }
 .all-item__section .all-item__ul .item__li article {
   display: flex;
@@ -120,6 +115,14 @@ html {
   color: white;
   font-size: 1.4rem;
 }
+.all-item__section .all-item__ul .item__li .dim__explan {
+  position: absolute;
+  opacity: 0;
+}
+.all-item__section .all-item__ul .item__li .dim__explan .textbox {
+  width: 14rem;
+  height: 10rem;
+}
 .all-item__section .all-item__ul .item__li:hover .dim__explan {
   display: flex;
   position: absolute;
@@ -135,15 +138,16 @@ html {
   position: absolute;
   top: 30%;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
+  width: 14rem;
+  height: 20rem;
   text-align: center;
   color: white;
 }
 .all-item__section .all-item__ul .item__li:hover .dim__explan .textbox .subText {
   display: -webkit-box;
   width: 13rem;
-  height: 4.2rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
@@ -151,13 +155,28 @@ html {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
-.all-item__section .all-item__ul .item__li:hover .dim__explan .show_more_btn {
-  position: absolute;
-  bottom: 5rem;
-  background-color: white;
-  width: 7rem;
-  height: 3rem;
-  color: grey;
+.all-item__section .all-item__ul .item__li:hover .dim__explan .textbox .show_more_btn {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: none;
+  border: 2px solid white;
+  border-radius: 0.25em;
+  cursor: pointer;
+  padding: 0.5em;
+}
+.all-item__section .all-item__ul .item__li:hover .dim__explan .textbox .show_more_btn::before {
+  color: white;
+  content: "더보기";
+}
+.all-item__section .all-item__ul .item__li:hover .dim__explan .textbox .show_more_btn:checked::before {
+  content: "닫기";
+}
+.all-item__section .all-item__ul .item__li:hover .dim__explan .textbox .subText:has(+ .show_more_btn:checked) {
+  -webkit-line-clamp: unset;
+  height: -moz-fit-content;
+  height: fit-content;
+  max-height: 9.5rem;
 }
 
 .routing__nav {
