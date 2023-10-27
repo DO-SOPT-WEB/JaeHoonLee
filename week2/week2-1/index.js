@@ -23,4 +23,27 @@ function checkSubtextHeight() {
     });
 }
 
+let allItem = document.querySelector(".all-item__ul");
+
+
+document.querySelector('.scroll-button.left').addEventListener('click', function() {
+   allItem.scrollTo(
+        {
+            top:0,
+            left:0,
+            behavior: 'smooth' // 부드러운 스크롤
+        }
+        );
+
+});
+
+document.querySelector('.scroll-button.right').addEventListener('click', function() {
+   allItem.scrollTo({
+        top:0,
+        left:document.querySelector('.all-item__ul').scrollWidth,
+        behavior: 'smooth' // 부드러운 스크롤을 위해 추가합니다.
+    });
+});
+
+
 checkSubtextHeight();

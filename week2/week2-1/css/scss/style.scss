@@ -83,7 +83,18 @@ html {
         background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
     }
 
-
+    .scroll-button { 
+        position: absolute;
+        top:17rem;
+        color:white;
+        font-size: 3rem
+    }
+    .left{
+        left:2rem;
+    }
+    .right{
+        right:2rem;
+    }
     .all-item__ul {
         display: flex;
         align-items: center;

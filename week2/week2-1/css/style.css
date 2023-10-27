@@ -65,6 +65,18 @@ html {
 .all-item__section .scrollBar::-webkit-scrollbar-track {
   background: rgba(33, 122, 244, 0.1); /*스크롤바 뒷 배경 색상*/
 }
+.all-item__section .scroll-button {
+  position: absolute;
+  top: 17rem;
+  color: white;
+  font-size: 3rem;
+}
+.all-item__section .left {
+  left: 2rem;
+}
+.all-item__section .right {
+  right: 2rem;
+}
 .all-item__section .all-item__ul {
   display: flex;
   align-items: center;
