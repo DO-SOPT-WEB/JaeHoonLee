@@ -1,7 +1,7 @@
 import { INIT_BALANCE, HISTORY_LIST } from "./constant.js";
 
 let filteredHistory=HISTORY_LIST;
-
+let allHistory=HISTORY_LIST;
 
 
 /**
@@ -48,7 +48,7 @@ function renderWithdrawList(filteredHistory) {
 /**
  * 나의자산 & 수입 & 지출 헤더
  */
-    const totalMoney = filteredHistory.reduce((total, item) => {
+    const totalMoney = allHistory.reduce((total, item) => {
         if (item.type === "income") {
             total += item.money;
         } else {
@@ -62,10 +62,10 @@ function renderWithdrawList(filteredHistory) {
     const income=depositSection.querySelector(".income__article");
     const expend=depositSection.querySelector(".expend__article");
     
-    const filterIncome=filteredHistory.filter(item=>item.type==="income");
+    const filterIncome=allHistory.filter(item=>item.type==="income");
     const totalIncome = filterIncome.reduce((total, item) => total + item.money, 0);
     
-    const filterExpend=filteredHistory.filter(item=>item.type==="expend");
+    const filterExpend=allHistory.filter(item=>item.type==="expend");
     const totalExpend = filterExpend.reduce((total, item) => total + item.money, 0);
     
     
