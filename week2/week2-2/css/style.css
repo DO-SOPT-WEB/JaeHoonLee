@@ -220,14 +220,17 @@ footer .plus-btn {
 }
 
 .modal {
-  display: none;
-  position: fixed; /* Stay in place */
-  top: 0;
+  display: none; /* Stay in place */
+  position: fixed;
+  top: 100%;
   left: 0;
   align-items: center;
   justify-content: center;
+  transition: all 600ms cubic-bezier(0.86, 0, 0.07, 1);
   z-index: 1; /* Sit on top */
+  margin: 0;
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  padding: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
@@ -260,6 +263,10 @@ footer .plus-btn {
 }
 .modal__contentbox .btnWrapper .closeBtn {
   background-color: red;
+}
+
+.modal.modal-open {
+  top: 0;
 }
 
 .deleteModal {

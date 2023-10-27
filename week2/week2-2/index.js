@@ -168,11 +168,14 @@ const closeBtn=document.querySelector(".closeBtn");
   
 function openModal(){
     modal.style.display = 'flex';
-     
+     modal.classList.add("modal-open")
 }
 function closeModal(){
      
     modal.style.display="none";
+    document.querySelector('.moneyInput').value = '';
+    document.querySelector('.titleInput').value = '';
+    modal.classList.remove("modal-open")
 }
 
 const modalOpen = document.querySelector(".plus-btn");
@@ -222,11 +225,9 @@ document.querySelector('.submitBtn').addEventListener('click', function() {
     const type = document.querySelector('input[name="type"]:checked').value;
     console.log(type)
     const category = document.querySelector('.category').value;
-    console.log(category);
     const money = parseInt(document.querySelector('.moneyInput').value);
-    console.log(money)
     const name = document.querySelector('.titleInput').value;
-     
+     console.log(money);
     if (!type || !category || isNaN(money) || money <= 0 || !name) {
         alert("올바른 값을 입력하세요.");
         return;
@@ -255,10 +256,12 @@ const input = document.querySelector('.moneyInput');
 input.addEventListener('keyup', function(e) {
   let value = e.target.value;
   value = Number(value.replaceAll(',', ''));
+  console.log(value);
   if(isNaN(value)) {
     input.value = 0;
   }else {
     const formatValue = value.toLocaleString('ko-KR');
     input.value = formatValue;
+    console.log(input.value);
   }
 })
