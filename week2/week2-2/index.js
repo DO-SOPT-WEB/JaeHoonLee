@@ -225,7 +225,7 @@ document.querySelector('.submitBtn').addEventListener('click', function() {
     const type = document.querySelector('input[name="type"]:checked').value;
     const category = document.querySelector('.category').value;
     const money = parseInt(document.querySelector('.moneyInput').value.replaceAll(',', ''));
-    console.log(document.querySelector('.moneyInput').value);
+
     const name = document.querySelector('.titleInput').value;
   
     if (!type || !category || isNaN(money) || money <= 0 || !name) {
