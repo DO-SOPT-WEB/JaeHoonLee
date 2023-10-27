@@ -1,6 +1,6 @@
 
-const INIT_BALANCE=0;
-const HISTORY_LIST=[
+export const INIT_BALANCE=0;
+export const HISTORY_LIST=[
     {
         category:"식비",
         name:"버거킹 와퍼",
@@ -23,3 +23,4 @@ const HISTORY_LIST=[
     }
   
 ]
+
