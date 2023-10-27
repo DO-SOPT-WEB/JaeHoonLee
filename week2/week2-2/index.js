@@ -134,14 +134,14 @@ withdrawUl.addEventListener('click', function(event) {
 });
 
 /**
- * 내역 추가 기능 구현
+ * 모달 handling
  */
 
 const modal=document.querySelector(".modal");
 const closeBtn=document.querySelector(".closeBtn");
 
 function openModal(){
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
 }
 function closeModal(){
     modal.style.display="none";
@@ -150,3 +150,34 @@ function closeModal(){
 const modalOpen = document.querySelector(".plus-btn");
 modalOpen.addEventListener("click",openModal);
 closeBtn.addEventListener("click",closeModal)
+
+
+
+/**
+ * 내역 추가 기능 구현
+ */
+
+const select = document.querySelector('.category');
+let income_option = new Option("교육알바", "행사알바");
+select.options.add(income_option)
+document.querySelector('.modal-income__checkbox').addEventListener('change', function() {
+    updateSelectOptions(this.checked, '교육알바', '행사알바');
+});
+
+document.querySelector('.modal-expend__checkbox').addEventListener('change', function() {
+    updateSelectOptions(this.checked, '주차비', '교통비');
+});
+
+function updateSelectOptions(isChecked, option1, option2) {
+    while (select.firstChild) {
+        select.removeChild(select.firstChild);
+    }
+    select.innerHTML = '';
+
+    if (isChecked) {
+        let incomeOption = new Option(option1, option1);
+        let expendOption = new Option(option2, option2);
+        select.options.add(incomeOption);
+        select.options.add(expendOption);
+    }
+}
