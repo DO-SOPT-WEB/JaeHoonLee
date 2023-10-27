@@ -217,6 +217,7 @@ document.querySelector('.submitBtn').addEventListener('click', function() {
         type: type
     };
 
+    alert("저장완료");
     // 새로운 객체를 배열에 추가합니다.
     filteredHistory.push(newEntry);
 
