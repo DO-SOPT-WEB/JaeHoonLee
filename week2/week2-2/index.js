@@ -134,8 +134,9 @@ withdrawUl.addEventListener('click', function(event) {
 });
 
 
+function addList(){
+    alert("add");
+}
 
-
-
-
-
+const add = document.querySelector(".plus-btn");
+add.addEventListener("click",addList);
