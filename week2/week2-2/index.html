@@ -65,22 +65,24 @@
                 <h2>내역 추가</h2>
                 <div class="modal-type">
                     <label  class="modal-income">
-                        <input type="radio" name="type" checked class="modal-income__checkbox">
+                        <input type="radio" name="type" value="income" checked class="modal-income__checkbox">
                         <span>수입 </span>
                     </label>
                     <label  class="modal-expend">
-                        <input  type="radio" name="type"  class="modal-expend__checkbox">
+                        <input  type="radio" name="type" value="expend" class="modal-expend__checkbox">
                         <span>지출 </span>
                     </label>
                 </div>
 
                 <h3>종류</h3>
-                <select class="category"></select>
-
+                <select class="category">
+                    <!-- <option value="">교육알바</option>
+                    <option value="event">행사알바</option> -->
+                </select>
                 <h3>금액</h3>
-                <input type="text">
+                <input type="text" value="" class="moneyInput">
                 <h3>내용</h3>
-                <input type="text">
+                <input type="text" value="" class="titleInput">
                 <div class="btnWrapper">
                 <button type="button" class="submitBtn">저장하기</button>
                 <button type="button" class="closeBtn">닫기</button>

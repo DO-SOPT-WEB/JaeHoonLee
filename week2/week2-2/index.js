@@ -154,12 +154,14 @@ closeBtn.addEventListener("click",closeModal)
 
 
 /**
- * 내역 추가 기능 구현
+ * type에 따른 category 생성
  */
 
 const select = document.querySelector('.category');
-let income_option = new Option("교육알바", "행사알바");
-select.options.add(income_option)
+let income_option1 = new Option("교육알바", "교육알바");
+let income_option2 = new Option("행사알바", "행사알바");
+select.options.add(income_option1)
+select.options.add(income_option2)
 document.querySelector('.modal-income__checkbox').addEventListener('change', function() {
     updateSelectOptions(this.checked, '교육알바', '행사알바');
 });
@@ -175,9 +177,49 @@ function updateSelectOptions(isChecked, option1, option2) {
     select.innerHTML = '';
 
     if (isChecked) {
-        let incomeOption = new Option(option1, option1);
-        let expendOption = new Option(option2, option2);
-        select.options.add(incomeOption);
-        select.options.add(expendOption);
+        let option1_ = new Option(option1, option1);
+        let option2_ = new Option(option2, option2);
+        select.options.add(option1_);
+        select.options.add(option2_);
     }
 }
+
+
+/**
+ * 내역 추가 기능 구현
+ */
+
+function handleMoney(){
+
+}
+// 저장 버튼을 클릭할 때 이벤트 핸들러를 등록합니다.
+document.querySelector('.submitBtn').addEventListener('click', function() {
+    // 모달 안의 요소들을 선택합니다.
+    const type = document.querySelector('input[name="type"]:checked').value;
+    console.log(type)
+    const category = document.querySelector('.category').value;
+    console.log(category);
+    const money = parseInt(document.querySelector('.moneyInput').value);
+    console.log(money)
+    const name = document.querySelector('.titleInput').value;
+    console.log(name);
+    // 입력값이 유효한지 확인합니다.
+    if (!type || !category || isNaN(money) || money <= 0 || !name) {
+        alert("올바른 값을 입력하세요.");
+        return;
+    }
+
+    // 새로운 객체를 생성하고 filteredHistory 배열에 추가합니다.
+    const newEntry = {
+        category: category,
+        name: name,
+        money: money,
+        type: type
+    };
+
+    // 새로운 객체를 배열에 추가합니다.
+    filteredHistory.push(newEntry);
+
+ 
+    renderWithdrawList(filteredHistory);
+});
