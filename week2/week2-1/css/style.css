@@ -123,8 +123,17 @@ html {
   width: 14rem;
   height: 10rem;
 }
+.all-item__section .all-item__ul .item__li .dim__explan .textbox .subText {
+  display: -webkit-box;
+  width: 13rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  font-size: 1.4rem;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
 .all-item__section .all-item__ul .item__li:hover .dim__explan {
-  display: flex;
   position: absolute;
   transition: all 0.3s linear;
   opacity: 1;
