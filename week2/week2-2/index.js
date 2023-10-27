@@ -1,33 +1,39 @@
 import { INIT_BALANCE, HISTORY_LIST } from "./constant.js";
 
-
+let filteredHistory=HISTORY_LIST;
 /**
  * 나의자산 & 수입 & 지출 헤더
  */
 
-const totalMoney=HISTORY_LIST.reduce((total, item) => total + item.money, 0);
-
+const totalMoney = filteredHistory.reduce((total, item) => {
+    if (item.type === "income") {
+        total += item.money;
+    } else {
+        total -= Math.abs(item.money);
+    }
+    return total;
+}, 0);
 const depositSection = document.querySelector('.deposit__section');
 const totalMoneyElement = depositSection.querySelector('p');
 
 const income=depositSection.querySelector(".income__article");
 const expend=depositSection.querySelector(".expend__article");
 
-const filterIncome=HISTORY_LIST.filter(item=>item.money>0);
+const filterIncome=filteredHistory.filter(item=>item.type==="income");
 const totalIncome = filterIncome.reduce((total, item) => total + item.money, 0);
 
-const filterExpend=HISTORY_LIST.filter(item=>item.money<=0);
+const filterExpend=filteredHistory.filter(item=>item.type==="expend");
 const totalExpend = filterExpend.reduce((total, item) => total + item.money, 0);
 
 
 totalMoneyElement.textContent = totalMoney.toLocaleString(); // 숫자 포맷팅 (콤마 추가)
-income.textContent =`+${totalIncome.toLocaleString()}`; 
-expend.textContent=`${totalExpend.toLocaleString()}`
+income.textContent =`+ ${totalIncome.toLocaleString()}`; 
+expend.textContent=`- ${totalExpend.toLocaleString()}`
 
 
 
 /**
- * 수입 지출 목록 
+ * 수입 지출 목록 렌더링
  */
 
 const withdrawUl = document.querySelector('.withdraw__ul');
@@ -46,10 +52,10 @@ function createWithdrawItem(item) {
     title.textContent = item.name;
     li.appendChild(title);
 
-    const history = document.createElement('p');
-    history.className = `history__article ${item.money > 0 ? 'income' : 'expend'}`;
-    history.textContent = item.money > 0 ? `+ ${item.money.toLocaleString()}` : `- ${Math.abs(item.money).toLocaleString()}`;
-    li.appendChild(history);
+    const money = document.createElement('p');
+    money.className = `history__article ${item.type==="income"? 'income' : 'expend'}`;
+    money.textContent = item.type==="income" ? `+ ${item.money.toLocaleString()}` : `- ${Math.abs(item.money).toLocaleString()}`;
+    li.appendChild(money);
 
     const deleteBtn = document.createElement('button');
     deleteBtn.type = 'button';
@@ -60,19 +66,21 @@ function createWithdrawItem(item) {
     return li;
 }
 
-HISTORY_LIST.forEach(item => {
+filteredHistory.forEach(item => {
     const listItem = createWithdrawItem(item);
     withdrawUl.appendChild(listItem);
 });
 
 
+/**
+ * 수입 지출 목록 필터링
+ */
 const income_checkbox=document.querySelector(".income-checkbox__input");
-
 const expend_checkbox=document.querySelector(".expend-checkbox__input");
 
 
 function renderWithdrawList(filteredHistory) {
-    withdrawUl.innerHTML = ''; // 기존 목록 비우기
+    withdrawUl.innerHTML = '';
     filteredHistory.forEach(item => {
         const listItem = createWithdrawItem(item);
         withdrawUl.appendChild(listItem);
@@ -83,33 +91,62 @@ function updateFilteredHistory() {
     const showIncome = income_checkbox.checked;
     const showExpend = expend_checkbox.checked;
 
-    const filteredHistory = HISTORY_LIST.filter(item => {
+     filteredHistory = HISTORY_LIST.filter(item => {
         if (showIncome && showExpend) {
-            return true; // 수입과 지출 모두 표시
+            return true; 
         } else if (showIncome) {
-            return item.type === 'income'; // 수입만 표시
+            return item.type === 'income'; 
         } else if (showExpend) {
-            return item.type === 'expend'; // 지출만 표시
+            return item.type === 'expend';
         }
-        return false; // 수입과 지출 모두 숨김
+        return false; 
     });
 
     renderWithdrawList(filteredHistory);
 }
 
-// // 초기 렌더링
-// window.onload = function () {
-//     incomeCheckbox.addEventListener('change', updateFilteredHistory);
-//     expendCheckbox.addEventListener('change', updateFilteredHistory);
-//     updateFilteredHistory(); // 페이지 로드 시 필터링된 목록으로 초기화
-// };
 
-
-
-console.log(income_checkbox)
 income_checkbox.addEventListener('change', updateFilteredHistory);
  expend_checkbox.addEventListener('change', updateFilteredHistory);
-updateFilteredHistory(); // 페이지 로드 시 필터링된 목록으로 초기화
+updateFilteredHistory(); 
+
+
+/**
+ * 삭제 버튼 기능 구현
+ */
+
+const deleteBtn=document.querySelectorAll(".delete-btn");
+
+function deleteItem(listItem) {
+    withdrawUl.removeChild(listItem);
+    const itemName = listItem.querySelector('.title__article').textContent;
+    const itemType = listItem.querySelector('.history__article').textContent.substr(2);
+    console.log(itemName, itemType)
+    // filteredHistory= HISTORY_LIST.filter(item => !(item.name === itemName && item.type === itemType));
+    // updateFilteredHistory(); 
+ 
+}
+
+deleteBtn.forEach((button) => {
+    button.addEventListener('click', function() {
+        const listItem = this.parentElement;
+        console.log(listItem);
+          deleteItem(listItem);
+    });
+});
+// deleteBtn.addEventListener("click",function(){
+//     const listItem = this.parentElement;
+//     console.log(listItem)
+//     // 해당 항목을 HISTORY_LIST에서 제거
+//     const itemName = listItem.querySelector('.title__article').textContent;
+//     const itemType = listItem.querySelector('.history__article').classList.contains('income') ? 'income' : 'expend';
+//     HISTORY_LIST.filter(item => !(item.name === itemName && item.type === itemType));
+
+//     // 필터링된 목록 다시 렌더링
+//     renderWithdrawList(HISTORY_LIST);
+// }
+// )
+
 
 
 

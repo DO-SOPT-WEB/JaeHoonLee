@@ -4,13 +4,13 @@ export const HISTORY_LIST=[
     {
         category:"식비",
         name:"버거킹 와퍼",
-        money:-8400,
+        money:8400,
         type:"expend"
     }
     ,   {
         category:"교통",
         name:"주차비",
-        money:-11000,
+        money:11000,
         type:"expend"
     }
     ,   {
