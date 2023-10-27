@@ -133,10 +133,20 @@ withdrawUl.addEventListener('click', function(event) {
     }
 });
 
+/**
+ * 내역 추가 기능 구현
+ */
 
-function addList(){
-    alert("add");
+const modal=document.querySelector(".modal");
+const closeBtn=document.querySelector(".closeBtn");
+
+function openModal(){
+    modal.style.display = 'block';
+}
+function closeModal(){
+    modal.style.display="none";
 }
 
-const add = document.querySelector(".plus-btn");
-add.addEventListener("click",addList);
+const modalOpen = document.querySelector(".plus-btn");
+modalOpen.addEventListener("click",openModal);
+closeBtn.addEventListener("click",closeModal)
