@@ -246,8 +246,10 @@ document.querySelector('.submitBtn').addEventListener('click', function() {
 
     alert("저장완료");
     filteredHistory.push(newEntry);
-
- 
     renderWithdrawList(filteredHistory);
-  
+    /**
+     * 입력값 초기화
+     */
+   document.querySelector('.moneyInput').value = '';
+   document.querySelector('.titleInput').value = '';
 });
