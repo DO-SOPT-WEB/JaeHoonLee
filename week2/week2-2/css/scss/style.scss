@@ -263,7 +263,7 @@ footer {
 
 
 .modal{
-    display: none; 
+
     position: fixed;
 
     top: 100%;
@@ -323,7 +323,7 @@ footer {
 }
 
 .modal.modal-open {
-    top: 0;
+    top: 30%;
 }
 .deleteModal{
     display: none;

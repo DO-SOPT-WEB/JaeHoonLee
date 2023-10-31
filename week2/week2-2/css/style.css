@@ -222,7 +222,6 @@ footer .plus-btn {
 }
 
 .modal {
-  display: none;
   position: fixed;
   top: 100%;
   left: 0;
@@ -268,7 +267,7 @@ footer .plus-btn {
 }
 
 .modal.modal-open {
-  top: 0;
+  top: 30%;
 }
 
 .deleteModal {

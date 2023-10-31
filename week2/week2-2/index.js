@@ -167,13 +167,12 @@ const closeBtn=document.querySelector(".closeBtn");
 
   
 function openModal(){
-    modal.style.display = 'flex';
+
      modal.classList.add("modal-open")
 }
 function closeModal(){
      
-    modal.style.display="none";
-    document.querySelector('.moneyInput').value = '';
+ document.querySelector('.moneyInput').value = '';
     document.querySelector('.titleInput').value = '';
     modal.classList.remove("modal-open")
 }
