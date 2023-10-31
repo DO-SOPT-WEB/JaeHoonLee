@@ -208,9 +208,9 @@ main {
             .title__article{
                 width: 15rem;
                 overflow: hidden;
+                text-align: center;
                 text-overflow: ellipsis;
                 white-space: nowrap;
-                text-align: center;
             }
             .delete-btn {
                 position: absolute;
@@ -258,14 +258,20 @@ footer {
         color: white;
         font-size: 4rem;
     }
+    .categoryPlusBtn{
+        background-color: #3253FF;
+        width: 6rem;
+        height: 3rem;
+        color:white;
+    }
 
 }
 
 
 .modal{
+    display: flex;
 
     position: fixed;
-    display: flex;
     top: 100%;
     left: 0;
     align-items: center;

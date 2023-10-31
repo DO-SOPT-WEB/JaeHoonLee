@@ -220,6 +220,12 @@ footer .plusBtn {
   color: white;
   font-size: 4rem;
 }
+footer .categoryPlusBtn {
+  background-color: #3253FF;
+  width: 6rem;
+  height: 3rem;
+  color: white;
+}
 
 .modal {
   position: fixed;
