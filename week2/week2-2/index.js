@@ -263,3 +263,8 @@ input.addEventListener('keyup', function(e) {
     input.value = formatValue;
   }
 })
+
+const categoryPlusBtn=document.querySelector(".categoryPlusBtn");
+categoryPlusBtn.addEventListener('click',function(){
+    location.href="category.html"
+})
