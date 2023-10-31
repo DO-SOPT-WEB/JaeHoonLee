@@ -147,7 +147,8 @@ main {
 .withdraw__section {
   margin-bottom: 10rem;
   width: 100%;
-  height: 70rem;
+  height: -moz-fit-content;
+  height: fit-content;
   overflow: auto;
 }
 .withdraw__section .withdraw__ul {
@@ -177,6 +178,7 @@ main {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-align: center;
 }
 .withdraw__section .withdraw__ul .withdraw__li .delete-btn {
   position: absolute;
@@ -220,20 +222,20 @@ footer .plus-btn {
 }
 
 .modal {
-  display: none; /* Stay in place */
+  display: none;
   position: fixed;
   top: 100%;
   left: 0;
   align-items: center;
   justify-content: center;
   transition: all 600ms cubic-bezier(0.86, 0, 0.07, 1);
-  z-index: 1; /* Sit on top */
+  z-index: 1;
   margin: 0;
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  background-color: rgba(0, 0, 0, 0.4);
   padding: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
 }
 
 .modal__contentbox {
@@ -271,16 +273,16 @@ footer .plus-btn {
 
 .deleteModal {
   display: none;
-  position: fixed; /* Stay in place */
+  position: fixed;
   top: 0;
   left: 0;
   align-items: center;
   justify-content: center;
-  z-index: 1; /* Sit on top */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  overflow: auto;
 }
 .deleteModal .deleteModalContent {
   display: flex;
