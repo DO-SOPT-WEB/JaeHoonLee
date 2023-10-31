@@ -177,7 +177,7 @@ function closeModal(){
     modal.classList.remove("modal-open")
 }
 
-const modalOpen = document.querySelector(".plus-btn");
+const modalOpen = document.querySelector(".plusBtn");
 modalOpen.addEventListener("click",openModal);
 closeBtn.addEventListener("click",closeModal)
 
