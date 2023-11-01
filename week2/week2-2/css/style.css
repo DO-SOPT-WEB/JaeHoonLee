@@ -327,11 +327,14 @@ footer .categoryPlusBtn {
   background-color: #808080;
   padding: 1rem;
   width: 40rem;
-  height: 20rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: 20rem;
   color: white;
 }
 .category__main .category__section .income__list {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 .category__main .category__section .income__list li {
@@ -353,7 +356,7 @@ footer .categoryPlusBtn {
   align-items: center;
   font-size: 2.6rem;
 }
-.category__main .category__section .input__Wrapper .category__input {
+.category__main .category__section .input__Wrapper .income__input {
   outline: none;
   border: none;
   border-bottom: 1px solid #3253FF;
@@ -390,7 +393,7 @@ footer .categoryPlusBtn {
   align-items: center;
   font-size: 2.6rem;
 }
-.category__main .red__section .expend__Wrapper .category__output {
+.category__main .red__section .expend__Wrapper .expend__input {
   outline: none;
   border: none;
   border-bottom: 1px solid red;

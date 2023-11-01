@@ -387,10 +387,12 @@ footer {
         background-color: #808080;
         padding: 1rem;
         width: 40rem;
-        height: 20rem;
+        height: fit-content;
+        min-height: 20rem;
         color:white;
         .income__list{
             display: flex;
+            flex-wrap: wrap;
             gap:1rem;
             li{
                 display : flex;
@@ -410,7 +412,7 @@ footer {
             gap:2rem;
             align-items: center;
             font-size: 2.6rem;
-            .category__input{
+            .income__input{
                 outline:none;
                 border:none;
                 border-bottom: 1px solid #3253FF;
@@ -447,7 +449,7 @@ footer {
             gap:2rem;
             align-items: center;
             font-size: 2.6rem;
-            .category__output{
+            .expend__input{
                 outline:none;
                 border:none;
                 border-bottom: 1px solid red;

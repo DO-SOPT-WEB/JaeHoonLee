@@ -28,3 +28,11 @@ export const HISTORY_LIST=[
   
 ]
 
+export const INCOME_CATEGORY=[
+    "행사알바", "교육알바"
+]
+
+export const EXPEND_CATEGORY=[
+    "교통","식비"
+]
+
