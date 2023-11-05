@@ -21,25 +21,26 @@ function checkSubtextHeight() {
 }
 
 const allItem = document.querySelector(".all-item__ul");
+const scrollToLeftBtn = document.querySelector(".scroll-button.left");
+const scrollToRightBtn = document.querySelector(".scroll-button.right");
 
-document
-  .querySelector(".scroll-button.left")
-  .addEventListener("click", function () {
-    allItem.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth", // 부드러운 스크롤
-    });
+function moveToLeft() {
+  allItem.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth", // 부드러운 스크롤
   });
+}
 
-document
-  .querySelector(".scroll-button.right")
-  .addEventListener("click", function () {
-    allItem.scrollTo({
-      top: 0,
-      left: allItem.scrollWidth,
-      behavior: "smooth", // 부드러운 스크롤을 위해 추가합니다.
-    });
+function moveToRight() {
+  allItem.scrollTo({
+    top: 0,
+    left: allItem.scrollWidth,
+    behavior: "smooth", // 부드러운 스크롤을 위해 추가합니다.
   });
+}
+
+scrollToLeftBtn.addEventListener("click", moveToLeft);
+scrollToRightBtn.addEventListener("click", moveToRight);
 
 checkSubtextHeight();
