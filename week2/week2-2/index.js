@@ -198,6 +198,9 @@ modalOpen.addEventListener("click", openModal);
 modalOpen.addEventListener("click", renderCategory);
 closeBtn.addEventListener("click", closeModal);
 
+const incomeCheckbox = document.querySelector(".modal-income__checkbox");
+const expendCheckbox = document.querySelector(".modal-expend__checkbox");
+
 function renderCategory() {
   const parsingIncomeCatogry = JSON.parse(
     localStorage.getItem("income_category")
@@ -209,17 +212,14 @@ function renderCategory() {
     let option1_ = new Option(item, item);
     select.options.add(option1_);
   });
-  document
-    .querySelector(".modal-income__checkbox")
-    .addEventListener("change", function () {
-      updateSelectOptions(this.checked, parsingIncomeCatogry);
-    });
 
-  document
-    .querySelector(".modal-expend__checkbox")
-    .addEventListener("change", function () {
-      updateSelectOptions(this.checked, parsingExpendCatogry);
-    });
+  incomeCheckbox.addEventListener("change", function () {
+    updateSelectOptions(this.checked, parsingIncomeCatogry);
+  });
+
+  expendCheckbox.addEventListener("change", function () {
+    updateSelectOptions(this.checked, parsingExpendCatogry);
+  });
 }
 
 /**

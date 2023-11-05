@@ -3,22 +3,22 @@ btn.addEventListener("click", function () {
   location.href = "index.html";
 });
 
-const parsingIncomeCatogry = JSON.parse(
+const parsingIncomeCategory = JSON.parse(
   localStorage.getItem("income_category")
 );
-const parsingExpendCatogry = JSON.parse(
+const parsingExpendCategory = JSON.parse(
   localStorage.getItem("expend_category")
 );
 
 const incomeList = document.querySelector(".income__list");
-parsingIncomeCatogry.forEach((item) => {
+parsingIncomeCategory.forEach((item) => {
   let li = document.createElement("li");
   li.textContent = item;
   incomeList.appendChild(li);
 });
 
 const expendList = document.querySelector(".expend__list");
-parsingExpendCatogry.forEach((item) => {
+parsingExpendCategory.forEach((item) => {
   let li = document.createElement("li");
   li.textContent = item;
   expendList.appendChild(li);
@@ -29,11 +29,11 @@ const expendInput = document.querySelector(".expend__input");
 
 incomeInput.addEventListener("keydown", function (event) {
   if (event.keyCode === 13) {
-    let temp = JSON.parse(localStorage.getItem("income_category")) || [];
-    temp.push(event.target.value);
-    console.log(temp);
-    localStorage.setItem("income_category", JSON.stringify(temp));
-    let li = document.createElement("li");
+    let tempIncomeCategory =
+      JSON.parse(localStorage.getItem("income_category")) || [];
+    tempIncomeCategory.push(event.target.value);
+    localStorage.setItem("income_category", JSON.stringify(tempIncomeCategory));
+    const li = document.createElement("li");
     li.textContent = event.target.value;
     incomeInput.value = null;
     incomeList.appendChild(li);
