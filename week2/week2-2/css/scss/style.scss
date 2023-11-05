@@ -167,7 +167,7 @@ main {
     }
 }
 
-.action input:checked+span {
+.action label input:checked+span {
     background-color: #3253FF;
 }
 
