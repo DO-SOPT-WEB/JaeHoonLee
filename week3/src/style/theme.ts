@@ -2,7 +2,8 @@ import { DefaultTheme } from "styled-components";
 
 const colors = {
   mainBlue: "#3498DB", //sky
-  mainBackground: "#ECF0F1", //grey
+  backgroundGrey: "#ECF0F1", //grey
+  backgroundBeige: "#F1ECF0",
 };
 
 const fontSize = {
