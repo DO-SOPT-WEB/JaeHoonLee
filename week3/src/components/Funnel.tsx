@@ -99,7 +99,9 @@ const Funnel = ({
   return (
     <FunnelWrapper>
       <MainText> {getText()}</MainText>
-      {page < 4 && type !== "Random" && <h1>{page} / 3</h1>}
+      {page < 4 && type !== "Random" && (
+        <CountTextWrapper>{page} / 3</CountTextWrapper>
+      )}
 
       {childrenArray[page]}
 
@@ -128,7 +130,7 @@ const FunnelWrapper = styled.div`
   padding-top: 5rem;
   gap: 5rem;
   width: 120rem;
-  height: 50rem;
+  height: 70rem;
   border: 5px solid ${({ theme }) => theme.colors.subBlue};
   border-radius: 10px;
 `;
@@ -150,6 +152,17 @@ const BackBtn = styled.button`
   font-size: ${({ theme }) => theme.fontSize.body2};
   background-color: ${({ theme }) => theme.colors.mainGreen};
   color: white;
+
+  transition: all 0.2s;
+  box-shadow: 0px 5px 0px 0px #1e8185;
+  border-radius: 5px;
+  &:hover {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  &:hover {
+    box-shadow: 0px 0px 0px 0px #007144;
+  }
 `;
 
 const NextBtn = styled.button<{ $activeBtn: boolean }>`
@@ -162,16 +175,41 @@ const NextBtn = styled.button<{ $activeBtn: boolean }>`
   background-color: ${({ $activeBtn, theme }) =>
     $activeBtn ? theme.colors.mainBlue : theme.colors.backgroundGrey};
   color: white;
+  transition: all 0.2s;
+  box-shadow: 0px 5px 0px 0px #1e8185;
+  border-radius: 5px;
+  &:hover {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  &:hover {
+    box-shadow: 0px 0px 0px 0px #007144;
+  }
 `;
 
 const ResetBtn = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 5rem;
-  height: 2rem;
+  width: 8rem;
+  height: 3rem;
   background-color: blue;
+  cursor: pointer;
   color: white;
+
+  transition: all 0.2s;
+  box-shadow: 0px 5px 0px 0px #1e8185;
+  border-radius: 5px;
+  &:hover {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  &:hover {
+    box-shadow: 0px 0px 0px 0px #007144;
+  }
 `;
 
+const CountTextWrapper = styled.p`
+  font-size: ${({ theme }) => theme.fontSize.body2};
+`;
 export default Funnel;

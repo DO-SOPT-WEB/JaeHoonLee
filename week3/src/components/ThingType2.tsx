@@ -58,5 +58,9 @@ const InputButton = styled.button<{ $active: boolean }>`
 
   transition-duration: 0.4s;
   font-size: ${({ theme }) => theme.fontSize.head1};
+
+  &:hover {
+    color: #12fb0c;
+  }
 `;
 export default ThingType2;
