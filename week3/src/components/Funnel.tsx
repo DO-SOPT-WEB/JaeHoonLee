@@ -4,6 +4,7 @@ import { MainTexts } from "../constants/MainTextConstants";
 import styled from "styled-components";
 type FunnelProp = {
   page: number;
+  type: "Thing" | "Random";
   setPage: Dispatch<SetStateAction<number>>;
   children: ReactNode;
 };
@@ -26,16 +27,25 @@ const Funnel = ({ page, setPage, children }: FunnelProp) => {
     }
   };
 
+  const handelBtnState = () => {};
   return (
     <FunnelWrapper>
       <MainText> {getText()}</MainText>
       {childrenArray[page]}
 
       <ButtonWrapper>
-        {page < 5 && (
-          <Btn onClick={() => setPage((prev) => prev + 1)}>다음</Btn>
+        {page >= 1 && page < 5 && (
+          <BackBtn onClick={() => setPage((prev) => prev - 1)}>
+            {" "}
+            이전으로
+          </BackBtn>
         )}
-        {page >= 5 && <ResetBtn>다시하기</ResetBtn>}
+        {page < 5 && (
+          <NextBtn onClick={() => setPage((prev) => prev + 1)}>
+            {page < 1 ? "start" : "다음"}
+          </NextBtn>
+        )}
+        {page == 5 && <ResetBtn onClick={() => setPage(1)}>다시하기</ResetBtn>}
       </ButtonWrapper>
     </FunnelWrapper>
   );
@@ -58,7 +68,17 @@ const ButtonWrapper = styled.div`
   display: flex;
 `;
 
-const Btn = styled.div`
+const BackBtn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 2rem;
+  background-color: yellow;
+  color: white;
+`;
+
+const NextBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
