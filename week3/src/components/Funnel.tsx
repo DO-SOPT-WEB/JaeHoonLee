@@ -32,22 +32,28 @@ const Funnel = ({
   const childrenArray = Children.toArray(children);
 
   const getText = () => {
-    switch (page) {
-      case 0:
-        return MainTexts.FirstText;
-      case 1:
-        return MainTexts.ThingText1;
-      case 2:
-        return MainTexts.ThingText2;
-      case 3:
-        return MainTexts.ThingText3;
-      case 4:
-        return MainTexts.LastText;
-      default:
-        return "error";
+    if (type === "Thing") {
+      switch (page) {
+        case 0:
+          return MainTexts.FirstText;
+        case 1:
+          return MainTexts.ThingText1;
+        case 2:
+          return MainTexts.ThingText2;
+        case 3:
+          return MainTexts.ThingText3;
+        case 4:
+          return MainTexts.LastText;
+        default:
+          return "error";
+      }
+    } else {
+      switch (page) {
+        case 1:
+          return MainTexts.LastText;
+      }
     }
   };
-
   const handelBtnState = () => {
     if (page === 0) {
       setActiveBtn(true);
@@ -92,15 +98,17 @@ const Funnel = ({
       {childrenArray[page]}
 
       <ButtonWrapper>
-        {page >= 1 && page < 4 && (
+        {page >= 1 && page < 4 && type !== "Random" && (
           <BackBtn onClick={() => setPage((prev) => prev - 1)}> 이전</BackBtn>
         )}
-        {page < 4 && (
+        {page < 4 && type !== "Random" && (
           <NextBtn $activeBtn={activeBtn} onClick={(e) => handleNextBtn(e)}>
             {page < 1 ? "start" : "다음"}
           </NextBtn>
         )}
-        {page == 4 && <ResetBtn onClick={handelResetBtn}>다시하기</ResetBtn>}
+        {(page == 4 || type === "Random") && (
+          <ResetBtn onClick={handelResetBtn}>다시하기</ResetBtn>
+        )}
       </ButtonWrapper>
     </FunnelWrapper>
   );

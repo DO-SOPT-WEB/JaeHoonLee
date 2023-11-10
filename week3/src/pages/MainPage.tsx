@@ -15,15 +15,7 @@ import CheckType from "../components/CheckType";
 const MainPage = () => {
   const [page, setPage] = useState(0);
   const [type, setType] = useState<"Thing" | "Random" | "Default">("Default");
-  // const [countryType, setCountryType] = useState<
-  //   "Japan" | "Korea" | "Chinese" | "Default"
-  // >("Default");
-  // const [ingredients, setIngredients] = useState<
-  //   "meat" | "seafood" | "etc" | "Default"
-  // >("Default");
-  // const [fried, setFried] = useState<"fried" | "nonFried" | "default">(
-  //   "default"
-  // );
+
   const initialState = {
     countryType: "",
     ingredient: "",
@@ -103,7 +95,13 @@ const MainPage = () => {
         </Funnel>
       )}
       {type === "Random" && (
-        <Funnel page={page} type={type} setPage={setPage} state={state}>
+        <Funnel
+          page={page}
+          type={type}
+          setPage={setPage}
+          setReset={setReset}
+          state={state}
+        >
           <CheckType type={type}></CheckType>
           <RandomResult></RandomResult>
         </Funnel>
