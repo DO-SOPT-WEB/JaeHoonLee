@@ -16,9 +16,17 @@ type FunnelProp = {
   type: "Thing" | "Random";
   setPage: Dispatch<SetStateAction<number>>;
   state: StateTypes;
+  setReset: () => void;
   children: ReactNode;
 };
-const Funnel = ({ page, type, setPage, state, children }: FunnelProp) => {
+const Funnel = ({
+  page,
+  type,
+  setPage,
+  state,
+  setReset,
+  children,
+}: FunnelProp) => {
   const [activeBtn, setActiveBtn] = useState(false);
 
   const childrenArray = Children.toArray(children);
@@ -69,6 +77,11 @@ const Funnel = ({ page, type, setPage, state, children }: FunnelProp) => {
       e.preventDefault();
     }
   };
+
+  const handelResetBtn = () => {
+    setPage(1);
+    setReset();
+  };
   useEffect(() => {
     handelBtnState();
   }, [page, state.countryType, state.ingredient, state.fried]);
@@ -87,7 +100,7 @@ const Funnel = ({ page, type, setPage, state, children }: FunnelProp) => {
             {page < 1 ? "start" : "다음"}
           </NextBtn>
         )}
-        {page == 4 && <ResetBtn onClick={() => setPage(1)}>다시하기</ResetBtn>}
+        {page == 4 && <ResetBtn onClick={handelResetBtn}>다시하기</ResetBtn>}
       </ButtonWrapper>
     </FunnelWrapper>
   );

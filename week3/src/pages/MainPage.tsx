@@ -86,7 +86,13 @@ const MainPage = () => {
       {type === "Default" && <SelectType setType={setType}></SelectType>}
 
       {type === "Thing" && (
-        <Funnel page={page} type={type} setPage={setPage} state={state}>
+        <Funnel
+          page={page}
+          type={type}
+          setPage={setPage}
+          state={state}
+          setReset={setReset}
+        >
           <CheckType type={type}></CheckType>
           <ThingType1 state={state} setCountry={setCountry}></ThingType1>
           <ThingType2 state={state} setIngredient={setIngredient}></ThingType2>
