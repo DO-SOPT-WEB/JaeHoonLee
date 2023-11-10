@@ -85,7 +85,11 @@ const Funnel = ({
   };
 
   const handelResetBtn = () => {
-    setPage(1);
+    if (type === "Random") {
+      setPage(0);
+    } else {
+      setPage(1);
+    }
     setReset();
   };
   useEffect(() => {
@@ -101,12 +105,12 @@ const Funnel = ({
         {page >= 1 && page < 4 && type !== "Random" && (
           <BackBtn onClick={() => setPage((prev) => prev - 1)}> 이전</BackBtn>
         )}
-        {page < 4 && type !== "Random" && (
+        {page < 4 && !(type === "Random" && page === 1) && (
           <NextBtn $activeBtn={activeBtn} onClick={(e) => handleNextBtn(e)}>
             {page < 1 ? "start" : "다음"}
           </NextBtn>
         )}
-        {(page == 4 || type === "Random") && (
+        {(page == 4 || (page === 1 && type === "Random")) && (
           <ResetBtn onClick={handelResetBtn}>다시하기</ResetBtn>
         )}
       </ButtonWrapper>
