@@ -31,11 +31,12 @@ const MainPage = () => {
   };
 
   const reducer = (state, action) => {
+    console.log(action.value);
     switch (action.type) {
       case "setCountry": {
         return {
           ...state,
-          countryType: state.value,
+          countryType: action.value,
         };
       }
       case "setIngredient": {
@@ -59,14 +60,15 @@ const MainPage = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
   console.log(page);
-
-  const setCountry = (e: React.MouseEvent<HTMLInputElement>) => {
-    dispatch({ type: "setCountry", value: e.currentTarget.value });
+  console.log(typeof state);
+  const setCountry = (e: React.MouseEvent<HTMLButtonElement>) => {
+    console.log(e.target.value);
+    dispatch({ type: "setCountry", value: e.target.value });
   };
-  const setIngredient = (e: React.MouseEvent<HTMLInputElement>) => {
+  const setIngredient = (e: React.MouseEvent<HTMLButtonElement>) => {
     dispatch({ type: "setIngredient", value: e.currentTarget.value });
   };
-  const setFried = (e: React.MouseEvent<HTMLInputElement>) => {
+  const setFried = (e: React.MouseEvent<HTMLButtonElement>) => {
     dispatch({ type: "setFried", value: e.currentTarget.value });
   };
   return (
@@ -76,9 +78,9 @@ const MainPage = () => {
       {type === "Default" && <SelectType setType={setType}></SelectType>}
 
       {type === "Thing" && (
-        <Funnel page={page} type={type} setPage={setPage}>
+        <Funnel page={page} type={type} setPage={setPage} state={state}>
           <CheckType type={type}></CheckType>
-          <ThingType1></ThingType1>
+          <ThingType1 state={state} setCountry={setCountry}></ThingType1>
           <ThingType2></ThingType2>
           <ThingType3></ThingType3>
           <ThingTypeResult></ThingTypeResult>
