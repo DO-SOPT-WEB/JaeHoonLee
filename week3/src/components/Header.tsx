@@ -1,21 +1,30 @@
 import styled from "styled-components";
+import { Dispatch, FunctionComponent, SetStateAction } from "react";
+import MainText from "./MainText";
 
-const Header = () => {
+type HeaderProps = {
+  page: number;
+  setPage: Dispatch<SetStateAction<number>>;
+};
+
+const Header: FunctionComponent<HeaderProps> = ({ page, setPage }) => {
+  const resetpage = () => {
+    setPage(0);
+  };
   return (
-    <div>
-      <HeaderWrapper>
-        <HeaderText>오늘의 저녁 추천</HeaderText>
-        <ResetBtn>처음으로</ResetBtn>
-      </HeaderWrapper>
-    </div>
+    <HeaderWrapper>
+      <HeaderText>오늘의 술 안주 추천</HeaderText>
+      {page > 1 && <ResetBtn onClick={resetpage}>처음으로</ResetBtn>}
+    </HeaderWrapper>
   );
 };
 
 const HeaderWrapper = styled.header`
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   height: 6.4rem;
+  width: 100%;
   background-color: ${({ theme }) => theme.colors.backgroundBeige};
 `;
 const HeaderText = styled.h1`
