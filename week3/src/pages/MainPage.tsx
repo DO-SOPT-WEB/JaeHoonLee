@@ -97,7 +97,7 @@ const MainPage = () => {
           <ThingType1 state={state} setCountry={setCountry}></ThingType1>
           <ThingType2 state={state} setIngredient={setIngredient}></ThingType2>
           <ThingType3 state={state} setFried={setFried}></ThingType3>
-          <ThingTypeResult></ThingTypeResult>
+          <ThingTypeResult state={state}></ThingTypeResult>
           {/* <Counter></Counter>
         <RandomResult></RandomResult> */}
         </Funnel>
