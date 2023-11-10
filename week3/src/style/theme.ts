@@ -4,6 +4,7 @@ const colors = {
   mainBlue: "#3498DB", //sky
   backgroundGrey: "#ECF0F1", //grey
   backgroundBeige: "#F1ECF0",
+  subBlue: "#90bbe7",
 };
 
 const fontSize = {

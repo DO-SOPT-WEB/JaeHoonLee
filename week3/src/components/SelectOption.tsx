@@ -1,7 +1,7 @@
 import React from "react";
 
-const SelectOption = ({ page }) => {
-  return <div>{page}</div>;
+const SelectOption = () => {
+  return <div>옵션선택</div>;
 };
 
 export default SelectOption;
