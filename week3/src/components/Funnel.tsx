@@ -8,12 +8,13 @@ type FunnelProp = {
   setPage: Dispatch<SetStateAction<number>>;
   children: ReactNode;
 };
-const Funnel = ({ page, setPage, children }: FunnelProp) => {
+const Funnel = ({ page, type, setPage, children }: FunnelProp) => {
   const childrenArray = Children.toArray(children);
 
   const getText = () => {
     switch (page) {
       case 0:
+        return MainTexts.FirstText;
       case 1:
         return MainTexts.FirstText;
       case 2:
