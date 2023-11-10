@@ -42,7 +42,7 @@ const MainPage = () => {
       case "setIngredient": {
         return {
           ...state,
-          ingredient: state.value,
+          ingredient: action.value,
         };
       }
       case "setFried": {
@@ -89,7 +89,7 @@ const MainPage = () => {
         <Funnel page={page} type={type} setPage={setPage} state={state}>
           <CheckType type={type}></CheckType>
           <ThingType1 state={state} setCountry={setCountry}></ThingType1>
-          <ThingType2></ThingType2>
+          <ThingType2 state={state} setIngredient={setIngredient}></ThingType2>
           <ThingType3></ThingType3>
           <ThingTypeResult></ThingTypeResult>
           {/* <Counter></Counter>

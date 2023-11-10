@@ -7,7 +7,6 @@ interface ThingType {
 }
 
 const ThingType1 = ({ state, setCountry }: ThingType) => {
-  console.log(state);
   const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     setCountry(e);
   };
@@ -50,7 +49,12 @@ const InputButton = styled.button<{ $active: boolean }>`
     $active ? theme.colors.btnGreen : theme.colors.mainWhite};
 
   border: 3px solid ${({ theme }) => theme.colors.btnGreen}; /* Green */
-  padding: 10rem 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25rem;
+  height: 25rem;
+
   transition-duration: 0.4s;
   font-size: ${({ theme }) => theme.fontSize.head1};
 `;

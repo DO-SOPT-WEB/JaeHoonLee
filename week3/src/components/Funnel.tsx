@@ -72,7 +72,7 @@ const Funnel = ({ page, type, setPage, state, children }: FunnelProp) => {
   };
   useEffect(() => {
     handelBtnState();
-  }, [page, state.countryType]);
+  }, [page, state.countryType, state.ingredient]);
 
   return (
     <FunnelWrapper>
