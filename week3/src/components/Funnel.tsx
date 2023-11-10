@@ -16,15 +16,15 @@ const Funnel = ({ page, type, setPage, children }: FunnelProp) => {
       case 0:
         return MainTexts.FirstText;
       case 1:
-        return MainTexts.FirstText;
-      case 2:
         return MainTexts.ThingText1;
-      case 3:
+      case 2:
         return MainTexts.ThingText2;
-      case 4:
+      case 3:
         return MainTexts.ThingText3;
-      case 5:
+      case 4:
         return MainTexts.LastText;
+      default:
+        return "error";
     }
   };
 
@@ -35,18 +35,18 @@ const Funnel = ({ page, type, setPage, children }: FunnelProp) => {
       {childrenArray[page]}
 
       <ButtonWrapper>
-        {page >= 1 && page < 5 && (
+        {page >= 1 && page < 4 && (
           <BackBtn onClick={() => setPage((prev) => prev - 1)}>
             {" "}
             이전으로
           </BackBtn>
         )}
-        {page < 5 && (
+        {page < 4 && (
           <NextBtn onClick={() => setPage((prev) => prev + 1)}>
             {page < 1 ? "start" : "다음"}
           </NextBtn>
         )}
-        {page == 5 && <ResetBtn onClick={() => setPage(1)}>다시하기</ResetBtn>}
+        {page == 4 && <ResetBtn onClick={() => setPage(1)}>다시하기</ResetBtn>}
       </ButtonWrapper>
     </FunnelWrapper>
   );
