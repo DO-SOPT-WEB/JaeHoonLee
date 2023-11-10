@@ -48,7 +48,7 @@ const MainPage = () => {
       case "setFried": {
         return {
           ...state,
-          fried: state.value,
+          fried: action.value,
         };
       }
       case "reset": {
@@ -90,7 +90,7 @@ const MainPage = () => {
           <CheckType type={type}></CheckType>
           <ThingType1 state={state} setCountry={setCountry}></ThingType1>
           <ThingType2 state={state} setIngredient={setIngredient}></ThingType2>
-          <ThingType3></ThingType3>
+          <ThingType3 state={state} setFried={setFried}></ThingType3>
           <ThingTypeResult></ThingTypeResult>
           {/* <Counter></Counter>
         <RandomResult></RandomResult> */}

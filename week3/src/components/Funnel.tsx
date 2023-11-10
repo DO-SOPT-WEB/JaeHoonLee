@@ -22,8 +22,7 @@ const Funnel = ({ page, type, setPage, state, children }: FunnelProp) => {
   const [activeBtn, setActiveBtn] = useState(false);
 
   const childrenArray = Children.toArray(children);
-  console.log(state.countryType);
-  console.log(page);
+
   const getText = () => {
     switch (page) {
       case 0:
@@ -53,13 +52,13 @@ const Funnel = ({ page, type, setPage, state, children }: FunnelProp) => {
       setActiveBtn(true);
     } else if (page === 2 && state.ingredient === "") {
       setActiveBtn(false);
-    } else if (page === 3 && state.ingredient !== "") {
+    } else if (page === 3 && state.fried !== "") {
       setActiveBtn(true);
-    } else if (page === 3 && state.ingredient === "") {
+    } else if (page === 3 && state.fried === "") {
       setActiveBtn(false);
     } else {
       setActiveBtn(false);
-      console.log("30");
+      console.log("error");
     }
   };
 
@@ -72,7 +71,7 @@ const Funnel = ({ page, type, setPage, state, children }: FunnelProp) => {
   };
   useEffect(() => {
     handelBtnState();
-  }, [page, state.countryType, state.ingredient]);
+  }, [page, state.countryType, state.ingredient, state.fried]);
 
   return (
     <FunnelWrapper>
