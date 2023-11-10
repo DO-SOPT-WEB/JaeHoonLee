@@ -5,14 +5,15 @@ const colors = {
   backgroundGrey: "#ECF0F1", //grey
   backgroundBeige: "#F1ECF0",
   subBlue: "#90bbe7",
+  mainGreen: " #a8f0e5",
 };
 
 const fontSize = {
-  head1: "2.4rem",
-  head2: "2.0rem",
-  head3: "1.6rem",
-  body1: "1.2rem",
-  body2: "1.0rem",
+  head1: "2.8rem",
+  head2: "2.4rem",
+  head3: "2rem",
+  body1: "1.8rem",
+  body2: "1.6rem",
 };
 
 export type ColorTypes = typeof colors;
