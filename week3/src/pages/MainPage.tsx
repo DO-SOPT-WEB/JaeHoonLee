@@ -71,9 +71,17 @@ const MainPage = () => {
   const setFried = (e: React.MouseEvent<HTMLButtonElement>) => {
     dispatch({ type: "setFried", value: e.currentTarget.value });
   };
+  const setReset = () => {
+    dispatch({ type: "reset" });
+  };
   return (
     <MainPageWrapper>
-      <Header page={page} setType={setType} setPage={setPage}></Header>
+      <Header
+        page={page}
+        setType={setType}
+        setPage={setPage}
+        setReset={setReset}
+      ></Header>
 
       {type === "Default" && <SelectType setType={setType}></SelectType>}
 
@@ -89,7 +97,7 @@ const MainPage = () => {
         </Funnel>
       )}
       {type === "Random" && (
-        <Funnel page={page} type={type} setPage={setPage}>
+        <Funnel page={page} type={type} setPage={setPage} state={state}>
           <CheckType type={type}></CheckType>
           <RandomResult></RandomResult>
         </Funnel>

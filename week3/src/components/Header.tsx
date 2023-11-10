@@ -6,12 +6,19 @@ type HeaderProps = {
   page: number;
   setType: Dispatch<SetStateAction<"Thing" | "Random" | "Default">>;
   setPage: Dispatch<SetStateAction<number>>;
+  setReset: () => void;
 };
 
-const Header: FunctionComponent<HeaderProps> = ({ page, setType, setPage }) => {
+const Header: FunctionComponent<HeaderProps> = ({
+  page,
+  setType,
+  setPage,
+  setReset,
+}) => {
   const resetpage = () => {
     setPage(0);
     setType("Default");
+    setReset();
   };
   return (
     <HeaderWrapper>
