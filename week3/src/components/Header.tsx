@@ -4,17 +4,19 @@ import MainText from "./MainText";
 
 type HeaderProps = {
   page: number;
+  setType: Dispatch<SetStateAction<"Thing" | "Random" | "Default">>;
   setPage: Dispatch<SetStateAction<number>>;
 };
 
-const Header: FunctionComponent<HeaderProps> = ({ page, setPage }) => {
+const Header: FunctionComponent<HeaderProps> = ({ page, setType, setPage }) => {
   const resetpage = () => {
     setPage(0);
+    setType("Default");
   };
   return (
     <HeaderWrapper>
       <HeaderText>오늘의 술 안주 추천</HeaderText>
-      {page > 1 && <ResetBtn onClick={resetpage}>처음으로</ResetBtn>}
+      {page >= 1 && <ResetBtn onClick={resetpage}>처음으로</ResetBtn>}
     </HeaderWrapper>
   );
 };

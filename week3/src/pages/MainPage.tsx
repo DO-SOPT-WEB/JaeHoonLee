@@ -17,7 +17,7 @@ const MainPage = () => {
   console.log(page);
   return (
     <MainPageWrapper>
-      <Header page={page} setPage={setPage}></Header>
+      <Header page={page} setType={setType} setPage={setPage}></Header>
 
       {type === "Default" && <SelectType setType={setType}></SelectType>}
 
