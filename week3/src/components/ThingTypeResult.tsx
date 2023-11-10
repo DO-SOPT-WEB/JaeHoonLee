@@ -32,7 +32,6 @@ const ResultImg = styled.image<{ img: string }>`
   background-repeat: no-repeat;
   width: 25rem;
   height: 25rem;
-  object-fit: fill;
 `;
 
 const FoodName = styled.h1`

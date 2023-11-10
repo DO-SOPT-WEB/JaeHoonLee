@@ -13,6 +13,7 @@ const colors = {
 };
 
 const fontSize = {
+  head: "8rem",
   head0: "3.5rem",
   head1: "2.8rem",
   head2: "2.4rem",
