@@ -6,6 +6,7 @@ const colors = {
   backgroundBeige: "#F1ECF0",
   subBlue: "#90bbe7",
   mainGreen: " #a8f0e5",
+  subGreen: "#91d8c9",
 };
 
 const fontSize = {
