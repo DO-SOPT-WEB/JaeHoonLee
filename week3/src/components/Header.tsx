@@ -46,7 +46,18 @@ const ResetBtn = styled.button`
   width: 8rem;
   height: 4rem;
   background-color: ${({ theme }) => theme.colors.mainBlue};
-  border-radius: 7px;
-  font-size: ${({ theme }) => theme.fontSize.body1};
+  font-size: ${({ theme }) => theme.fontSize.body2};
+  color: white;
+
+  transition: all 0.2s;
+  box-shadow: 0px 5px 0px 0px #1e8185;
+  border-radius: 5px;
+  &:hover {
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+  &:hover {
+    box-shadow: 0px 0px 0px 0px #007144;
+  }
 `;
 export default Header;
