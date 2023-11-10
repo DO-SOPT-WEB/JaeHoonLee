@@ -99,6 +99,8 @@ const Funnel = ({
   return (
     <FunnelWrapper>
       <MainText> {getText()}</MainText>
+      {page < 4 && type !== "Random" && <h1>{page} / 3</h1>}
+
       {childrenArray[page]}
 
       <ButtonWrapper>
@@ -171,4 +173,5 @@ const ResetBtn = styled.div`
   background-color: blue;
   color: white;
 `;
+
 export default Funnel;
