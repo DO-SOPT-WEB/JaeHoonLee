@@ -1,21 +1,13 @@
-import React from "react";
 import { StateTypes } from "../types/stateTypes";
-import { FOODS } from "../constants/Food";
 import styled from "styled-components";
+import ThingSelect from "../utils/ThingSelect";
 
 type ThingTypeResult = {
   state: StateTypes;
 };
 
 const ThingTypeResult = ({ state }: { state: StateTypes }) => {
-  const resultFood = FOODS.filter(
-    (food) =>
-      food.countryType == state.countryType &&
-      food.ingredient === state.ingredient &&
-      food.fried === state.fried
-  );
-
-  console.log(resultFood);
+  const resultFood = ThingSelect({ state });
   return (
     <ResultWrapper>
       <ResultImg src={resultFood[0].src}></ResultImg>
