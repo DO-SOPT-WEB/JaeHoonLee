@@ -16,7 +16,7 @@ const RandomResult = () => {
         <Counter time={time}></Counter>
       ) : (
         <RandomContainer>
-          <ResultImg img={randomFood.src}></ResultImg>
+          <ResultImg src={randomFood.src}></ResultImg>
           <FoodName>{randomFood.name}</FoodName>
         </RandomContainer>
       )}
@@ -25,9 +25,6 @@ const RandomResult = () => {
 };
 
 const RandomWrapper = styled.div`
-  width: 40rem;
-  height: 25rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,12 +36,10 @@ const RandomContainer = styled.div`
   gap: 1rem;
 `;
 
-const ResultImg = styled.image<{ img: string }>`
-  background-image: url(${(props) => props.img});
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 25rem;
-  height: 25rem;
+const ResultImg = styled.img`
+  width: 55rem;
+  height: 40rem;
+  object-fit: cover;
 `;
 
 const FoodName = styled.h1`

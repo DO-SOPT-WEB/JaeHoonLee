@@ -54,27 +54,6 @@ const Funnel = ({
       }
     }
   };
-  const handelBtnState = () => {
-    if (page === 0) {
-      setActiveBtn(true);
-      console.log("20");
-    } else if (page === 1 && state.countryType !== "") {
-      setActiveBtn(true);
-    } else if (page === 1 && state.countryType === "") {
-      setActiveBtn(false);
-    } else if (page === 2 && state.ingredient !== "") {
-      setActiveBtn(true);
-    } else if (page === 2 && state.ingredient === "") {
-      setActiveBtn(false);
-    } else if (page === 3 && state.fried !== "") {
-      setActiveBtn(true);
-    } else if (page === 3 && state.fried === "") {
-      setActiveBtn(false);
-    } else {
-      setActiveBtn(false);
-      console.log("error");
-    }
-  };
 
   const handleNextBtn = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (activeBtn) {
@@ -93,6 +72,27 @@ const Funnel = ({
     setReset();
   };
   useEffect(() => {
+    const handelBtnState = () => {
+      if (page === 0) {
+        setActiveBtn(true);
+        console.log("20");
+      } else if (page === 1 && state.countryType !== "") {
+        setActiveBtn(true);
+      } else if (page === 1 && state.countryType === "") {
+        setActiveBtn(false);
+      } else if (page === 2 && state.ingredient !== "") {
+        setActiveBtn(true);
+      } else if (page === 2 && state.ingredient === "") {
+        setActiveBtn(false);
+      } else if (page === 3 && state.fried !== "") {
+        setActiveBtn(true);
+      } else if (page === 3 && state.fried === "") {
+        setActiveBtn(false);
+      } else {
+        setActiveBtn(false);
+        console.log("error");
+      }
+    };
     handelBtnState();
   }, [page, state.countryType, state.ingredient, state.fried]);
 
