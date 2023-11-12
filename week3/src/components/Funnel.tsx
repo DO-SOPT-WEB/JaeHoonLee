@@ -63,7 +63,7 @@ const Funnel = ({
     }
   };
 
-  const handelResetBtn = () => {
+  const handleResetBtn = () => {
     if (type === "Random") {
       setPage(0);
     } else {
@@ -71,29 +71,24 @@ const Funnel = ({
     }
     setReset();
   };
+
   useEffect(() => {
-    const handelBtnState = () => {
+    const handleBtnState = () => {
       if (page === 0) {
-        setActiveBtn(true);
-        console.log("20");
-      } else if (page === 1 && state.countryType !== "") {
         setActiveBtn(true);
       } else if (page === 1 && state.countryType === "") {
         setActiveBtn(false);
-      } else if (page === 2 && state.ingredient !== "") {
-        setActiveBtn(true);
       } else if (page === 2 && state.ingredient === "") {
         setActiveBtn(false);
-      } else if (page === 3 && state.fried !== "") {
-        setActiveBtn(true);
       } else if (page === 3 && state.fried === "") {
         setActiveBtn(false);
       } else {
-        setActiveBtn(false);
-        console.log("error");
+        setActiveBtn(true);
+        console.log("예상치 못한 에러");
       }
     };
-    handelBtnState();
+
+    handleBtnState();
   }, [page, state.countryType, state.ingredient, state.fried]);
 
   return (
@@ -115,7 +110,7 @@ const Funnel = ({
           </NextBtn>
         )}
         {(page == 4 || (page === 1 && type === "Random")) && (
-          <ResetBtn onClick={handelResetBtn}>다시하기</ResetBtn>
+          <ResetBtn onClick={handleResetBtn}>다시하기</ResetBtn>
         )}
       </ButtonWrapper>
     </FunnelWrapper>
