@@ -8,7 +8,7 @@ import ThingType1 from "../components/ThingType1";
 import ThingType2 from "../components/ThingType2";
 import ThingType3 from "../components/ThingType3";
 import ThingTypeResult from "../components/ThingTypeResult";
-import Counter from "../components/Counter";
+
 import RandomResult from "../components/RandomResult";
 import CheckType from "../components/CheckType";
 

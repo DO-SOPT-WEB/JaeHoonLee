@@ -2,7 +2,12 @@ import React from "react";
 import { StateTypes } from "../types/stateTypes";
 import { FOODS } from "../constants/Food";
 import styled from "styled-components";
-const ThingTypeResult = ({ state }: StateTypes) => {
+
+type ThingTypeResult = {
+  state: StateTypes;
+};
+
+const ThingTypeResult = ({ state }: { state: StateTypes }) => {
   const resultFood = FOODS.filter(
     (food) =>
       food.countryType == state.countryType &&
