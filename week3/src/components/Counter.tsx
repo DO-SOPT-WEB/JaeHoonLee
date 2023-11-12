@@ -4,6 +4,9 @@ const Counter = ({ time }: number) => {
 };
 
 const CounterWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: ${({ theme }) => theme.fontSize.head};
   @keyframes fadeInDown {
     0% {
