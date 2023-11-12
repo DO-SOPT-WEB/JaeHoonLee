@@ -1,5 +1,6 @@
 import styled from "styled-components";
-const Counter = ({ time }: number) => {
+
+const Counter = ({ time }: { time: number }) => {
   return <CounterWrapper>{time}</CounterWrapper>;
 };
 
