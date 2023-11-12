@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Dispatch, FunctionComponent, SetStateAction } from "react";
-import MainText from "./MainText";
 
 type HeaderProps = {
   page: number;

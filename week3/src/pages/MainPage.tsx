@@ -12,6 +12,13 @@ import ThingTypeResult from "../components/ThingTypeResult";
 import RandomResult from "../components/RandomResult";
 import CheckType from "../components/CheckType";
 
+import { StateTypes } from "../types/stateTypes";
+
+interface ActionTypes {
+  type: string;
+  value: string;
+}
+
 const MainPage = () => {
   const [page, setPage] = useState(0);
   const [type, setType] = useState<"Thing" | "Random" | "Default">("Default");
@@ -22,8 +29,7 @@ const MainPage = () => {
     fried: "",
   };
 
-  const reducer = (state, action) => {
-    console.log(action.value);
+  const reducer = (state: StateTypes, action: ActionTypes) => {
     switch (action.type) {
       case "setCountry": {
         return {
@@ -51,11 +57,9 @@ const MainPage = () => {
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(page);
-  console.log(typeof state);
+
   const setCountry = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(e.target.value);
-    dispatch({ type: "setCountry", value: e.target.value });
+    dispatch({ type: "setCountry", value: e.currentTarget.value });
   };
   const setIngredient = (e: React.MouseEvent<HTMLButtonElement>) => {
     dispatch({ type: "setIngredient", value: e.currentTarget.value });
@@ -64,7 +68,7 @@ const MainPage = () => {
     dispatch({ type: "setFried", value: e.currentTarget.value });
   };
   const setReset = () => {
-    dispatch({ type: "reset" });
+    dispatch({ type: "reset", value: "null" });
   };
   return (
     <MainPageWrapper>
