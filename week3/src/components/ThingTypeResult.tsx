@@ -13,7 +13,7 @@ const ThingTypeResult = ({ state }: StateTypes) => {
   console.log(resultFood);
   return (
     <ResultWrapper>
-      <ResultImg img={resultFood[0].src}></ResultImg>
+      <ResultImg src={resultFood[0].src}></ResultImg>
       <FoodName>{resultFood[0].name}</FoodName>
     </ResultWrapper>
   );
@@ -26,12 +26,10 @@ const ResultWrapper = styled.div`
   gap: 1rem;
 `;
 
-const ResultImg = styled.image<{ img: string }>`
-  background-image: url(${(props) => props.img});
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 25rem;
-  height: 25rem;
+const ResultImg = styled.img`
+  width: 55rem;
+  height: 40rem;
+  object-fit: cover;
 `;
 
 const FoodName = styled.h1`
