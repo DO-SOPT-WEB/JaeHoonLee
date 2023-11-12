@@ -1,16 +1,11 @@
-import React from "react";
 import styled from "styled-components";
-
+import RecomendPhrase from "../constants/RecomendPhrase";
 type CheckTypeProps = {
   type: "Thing" | "Random";
 };
 
 const CheckType = ({ type }: CheckTypeProps) => {
-  return (
-    <CheckTypeWrapper>
-      {type == "Thing" ? "취향대로 추천" : "랜덤 추천"}
-    </CheckTypeWrapper>
-  );
+  return <CheckTypeWrapper>{RecomendPhrase[type]}</CheckTypeWrapper>;
 };
 
 const CheckTypeWrapper = styled.div`
