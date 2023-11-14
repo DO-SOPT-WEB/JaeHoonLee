@@ -5,10 +5,13 @@
   "repository": "https://github.com/DO-SOPT-WEB/JaehoonLee.git",
   "author": "ljh0608 <m98m@catholic.ac.kr>",
   "license": "MIT",
-
   "devDependencies": {
+    "@types/testing-library__jest-dom": "5.14.5",
     "stylelint": "^15.10.3",
     "stylelint-config-concentric-order": "^5.2.0",
     "stylelint-config-recommended": "^13.0.0"
+  },
+  "dependencies": {
+    "styled-components": "^6.1.0"
   }
 }
