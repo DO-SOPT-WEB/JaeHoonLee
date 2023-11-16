@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import { reset } from "styled-reset";
+import { createGlobalStyle } from 'styled-components';
+import { reset } from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -10,7 +10,13 @@ const GlobalStyle = createGlobalStyle`
     html, body {
 margin: 0 auto;
 font-size: 62.5%;
+height: 100%;
 }
+
+#root{
+  height: 100%;
+}
+
 button {
 border: none;
 background: none;
