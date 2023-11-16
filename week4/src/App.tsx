@@ -1,12 +1,11 @@
-import GlobalStyle from "./styles/GlobalStyle";
-import Login from "./pages/login/Login";
+import GlobalStyle from './styles/GlobalStyle';
+import Login from './pages/login/Login';
+import Router from './Router';
 function App() {
   return (
     <>
       <GlobalStyle />
-
-      <h1>Hello</h1>
-      <Login></Login>
+      <Router />
     </>
   );
 }
