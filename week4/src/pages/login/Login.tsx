@@ -1,13 +1,23 @@
 import Button from '../../components/atomComponents/Button';
 import useFormInput from '../../hooks/useFormInput';
 import * as S from './Login.style';
+import { client } from '../../apis/client';
 
 const Login = () => {
   const userId = useFormInput();
   const userPwd = useFormInput();
 
   const handleLogin = () => {
-    console.log('gd');
+    try {
+      const res = client.post('/api/v1/members/sign-in', {
+        username: userId.value,
+        password: userPwd.value,
+      });
+
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <>
