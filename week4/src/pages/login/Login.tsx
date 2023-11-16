@@ -2,22 +2,33 @@ import Button from '../../components/atomComponents/Button';
 import useFormInput from '../../hooks/useFormInput';
 import * as S from './Login.style';
 import { client } from '../../apis/client';
-
+import useRouter from '../../hooks/useRouter';
+import { isAxiosError } from 'axios';
 const Login = () => {
   const userId = useFormInput();
   const userPwd = useFormInput();
 
-  const handleLogin = () => {
+  const { routeTo } = useRouter();
+  const handleLogin = async () => {
     try {
-      const res = client.post('/api/v1/members/sign-in', {
+      const res = await client.post('/api/v1/members/sign-in', {
         username: userId.value,
         password: userPwd.value,
       });
 
       console.log(res);
     } catch (err) {
-      console.log(err);
+      if (isAxiosError(err) && err.response) {
+        if (err.response.status == 400) {
+          alert('아이디 혹은 비밀번호가 틀립니다.');
+        } else {
+          console.log(err.response.status);
+        }
+      }
     }
+  };
+  const handleSingUp = () => {
+    routeTo('/signup');
   };
   return (
     <>
@@ -37,7 +48,7 @@ const Login = () => {
           <Button type="POSITIVE" onClick={handleLogin}>
             로그인
           </Button>
-          <Button type="DFAULT" onClick={handleLogin}>
+          <Button type="DFAULT" onClick={handleSingUp}>
             회원가입
           </Button>
         </S.LoginBtnWrapper>
