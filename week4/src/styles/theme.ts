@@ -13,7 +13,7 @@ const fontSize = {
   head1: '2.8rem',
   head2: '2.4rem',
   head3: '2rem',
-  body1: '1.8rem',
+  body1: '1.6rem',
   body2: '1.2rem',
 };
 

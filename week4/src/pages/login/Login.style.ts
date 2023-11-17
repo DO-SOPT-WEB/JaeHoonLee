@@ -21,6 +21,11 @@ export const InputLabel = styled.label`
   width: 20rem;
   margin-bottom: 1rem;
 `;
+export const SignUpInput = styled.input`
+  width: 10rem;
+  height: 2rem;
+  padding: 0.5rem;
+`;
 export const LabelSpan = styled.span`
   width: 5rem;
   font-size: ${({ theme }) => theme.fontSize.body1};

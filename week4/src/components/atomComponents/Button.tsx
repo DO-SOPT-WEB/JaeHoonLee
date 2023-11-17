@@ -26,7 +26,7 @@ const ButtonStyle = {
   `,
   NEGATIVE: css`
     background-color: ${({ theme }) => theme.colors.mainGrey};
-    color: ${({ theme }) => theme.colors.mainWhite};
+    color: ${({ theme }) => theme.colors.mainBlack};
   `,
 };
 const BasicBtn = styled.button<{ $type: string }>`

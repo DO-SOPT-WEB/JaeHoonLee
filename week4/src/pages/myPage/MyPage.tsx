@@ -2,10 +2,10 @@ import * as S from './MyPage.style';
 
 const MyPage = () => {
   return (
-    <S.SignUpWrapper>
-      <S.SignUpTitle> MY PAGE</S.SignUpTitle>
-      <S.SignUpContainer>
-        <S.SignUpImage />
+    <S.MyPageWrapper>
+      <S.MyPageTitle> MY PAGE</S.MyPageTitle>
+      <S.MyPageContainer>
+        <S.MyPageImage />
         <S.UserInfoWrapper>
           <S.UserInfoContainer>
             <S.UserInfoText>ID: </S.UserInfoText> <S.UserInfoText> </S.UserInfoText>
@@ -14,8 +14,8 @@ const MyPage = () => {
             <S.UserInfoText>닉네임: </S.UserInfoText> <S.UserInfoText> </S.UserInfoText>
           </S.UserInfoContainer>
         </S.UserInfoWrapper>
-      </S.SignUpContainer>
-    </S.SignUpWrapper>
+      </S.MyPageContainer>
+    </S.MyPageWrapper>
   );
 };
 

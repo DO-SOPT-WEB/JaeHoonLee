@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 import { MainContentsWrapper } from '../../components/atomComponents/MainContents.style';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-export const SignUpWrapper = styled.div`
+export const MyPageWrapper = styled.div`
   ${MainContentsWrapper}
 `;
 
-export const SignUpTitle = styled.h1`
+export const MyPageTitle = styled.h1`
   font-size: ${({ theme }) => theme.fontSize.head1};
   color: ${({ theme }) => theme.colors.mainBlack};
 `;
 
-export const SignUpContainer = styled.div`
+export const MyPageContainer = styled.div`
   display: flex;
   width: 30rem;
   justify-content: center;
@@ -18,7 +18,7 @@ export const SignUpContainer = styled.div`
   gap: 2rem;
 `;
 
-export const SignUpImage = styled(AccountCircleIcon)`
+export const MyPageImage = styled(AccountCircleIcon)`
   && {
     width: 5rem;
     height: 5rem;
