@@ -9,6 +9,7 @@ const Login = () => {
   const userPwd = useFormInput();
 
   const { routeTo } = useRouter();
+
   const handleLogin = async () => {
     try {
       const res = await client.post('/api/v1/members/sign-in', {
@@ -27,6 +28,7 @@ const Login = () => {
       }
     }
   };
+
   const handleSingUp = () => {
     routeTo('/signup');
   };

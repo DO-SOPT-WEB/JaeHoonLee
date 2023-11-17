@@ -1,16 +1,7 @@
 import styled from 'styled-components';
-
+import { MainContentsWrapper } from '../../components/atomComponents/MainContents.style';
 export const LoginWrapper = styled.div`
-  display: flex;
-  align-items: center;
-
-  flex-direction: column;
-  border-radius: 5px;
-  gap: 4rem;
-  width: 45rem;
-  height: 35rem;
-  padding: 3rem;
-  background-color: ${({ theme }) => theme.colors.mainWhite};
+  ${MainContentsWrapper}
 `;
 
 export const LoginText = styled.h1`
