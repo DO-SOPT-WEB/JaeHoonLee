@@ -30,15 +30,22 @@ const SignUp = () => {
       <S.SignUpFormWrapper>
         <S.InputLabel>
           <S.LabelSpan> ID : </S.LabelSpan>
-          <S.SignUpInput type="text" placeholder="아이디를 입력해주세요" {...userId} />
+          <S.SignUpInput $wid={false} type="text" placeholder="아이디를 입력해주세요" {...userId} />
+          <S.DuplicationBtn>중복확인</S.DuplicationBtn>
         </S.InputLabel>
         <S.InputLabel>
           <S.LabelSpan> 비밀번호 : </S.LabelSpan>
-          <S.SignUpInput type="text" placeholder="비밀번호를 입력해주세요" {...userPwd} />
+          <S.SignUpInput
+            $wid={true}
+            type="text"
+            placeholder="비밀번호를 입력해주세요"
+            {...userPwd}
+          />
         </S.InputLabel>
         <S.InputLabel>
           <S.LabelSpan> 비밀번호 확인 : </S.LabelSpan>
           <S.SignUpInput
+            $wid={true}
             type="text"
             placeholder="비밀번호를 다시 한 번 입력해주세요"
             {...checkUserPwd}
@@ -46,7 +53,12 @@ const SignUp = () => {
         </S.InputLabel>
         <S.InputLabel>
           <S.LabelSpan> 닉네임 : </S.LabelSpan>
-          <S.SignUpInput type="text" placeholder="닉네임을 입력해주세요" {...userNickname} />
+          <S.SignUpInput
+            $wid={true}
+            type="text"
+            placeholder="닉네임을 입력해주세요"
+            {...userNickname}
+          />
         </S.InputLabel>
         <Button type="NEGATIVE" onClick={handleSignUp}>
           회원가입

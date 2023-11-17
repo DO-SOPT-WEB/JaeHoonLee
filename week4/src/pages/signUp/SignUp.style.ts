@@ -19,8 +19,10 @@ export const SignUpFormWrapper = styled.div`
 `;
 
 export const InputLabel = styled.label`
-  display: inline-block;
+  display: flex;
+  align-items: center;
   text-align: start;
+
   width: 31rem;
   margin-bottom: 1rem;
 `;
@@ -30,8 +32,19 @@ export const LabelSpan = styled.span`
   width: 11rem;
   font-size: ${({ theme }) => theme.fontSize.body1};
 `;
-export const SignUpInput = styled.input`
+export const SignUpInput = styled.input<{ $wid: boolean }>`
   width: 20rem;
+
+  width: ${(props) => (props.$wid ? '20rem' : '14rem')};
   height: 3rem;
   padding: 0.5rem;
+`;
+
+export const DuplicationBtn = styled.button`
+  width: 5.5rem;
+  height: 2.5rem;
+  margin-left: 0.5rem;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
 `;
