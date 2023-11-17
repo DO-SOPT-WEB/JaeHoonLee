@@ -2,11 +2,15 @@ import styled, { css } from 'styled-components';
 
 type DuplicateCheckBtnProps = {
   type: string;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-const DuplicateCheckButton = ({ type }: DuplicateCheckBtnProps) => {
-  console.log(type);
-  return <DuplicationBtn type={type}>중복확인</DuplicationBtn>;
+const DuplicateCheckButton = ({ type, onClick }: DuplicateCheckBtnProps) => {
+  return (
+    <DuplicationBtn type={type} onClick={onClick}>
+      중복확인
+    </DuplicationBtn>
+  );
 };
 
 const ButtonStyle = {

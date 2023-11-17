@@ -13,11 +13,14 @@ export const setPossibleSignup = ({
   isExit,
   onDuplicate,
 }: PossibleSignUpProps) => {
-  if (id === '' || pwd === '' || nickname == '' || isExit === true || onDuplicate === false) {
-    return 'NEGATIVE';
-  } else if (!onDuplicate) {
-    return 'DEFAULT';
-  } else {
+  console.log(`id: ${id}`);
+  console.log(`pwd: ${pwd}`);
+  console.log(`nickname: ${nickname}`);
+  console.log(`iisExitd: ${isExit}`);
+  console.log(`onDuplicate: ${onDuplicate}`);
+  if (id !== '' && pwd !== '' && nickname !== '' && !isExit && onDuplicate) {
     return 'POSITIVE';
+  } else {
+    return 'NEGATIVE';
   }
 };

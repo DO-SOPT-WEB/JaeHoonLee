@@ -14,19 +14,8 @@ const SignUp = () => {
   const userNickname = useFormInput();
 
   const [isDuplicateBtnClick, setIsDuplicateBtnClick] = useState(false);
-  const [isDuplicateExit, setDuplicateExit] = useState(false);
-  const [btnState, setBtnState] = useState('DEFAULT');
-
-  useEffect(() => {
-    const btn = setPossibleSignup(
-      userId,
-      userPwd,
-      userNickname,
-      isDuplicateBtnClick,
-      isDuplicateExit,
-    );
-    setBtnState(btn);
-  }, [userId, userPwd, userNickname, isDuplicateBtnClick, isDuplicateExit]);
+  const [isDuplicated, setIsDuplicated] = useState(false);
+  const [signUpBtnState, setSignUpBtnState] = useState('DEFAULT');
 
   const { routeTo } = useRouter();
   const handleSignUp = async () => {
@@ -43,6 +32,30 @@ const SignUp = () => {
       console.log(err);
     }
   };
+
+  //중복 확인 버튼
+  const handleDuplicateBtn = async () => {
+    try {
+      const res = await client.get(`api/v1/members/check?username=${userId.value}`);
+      console.log(res.data.isExist);
+      setIsDuplicated(res.data.isExist);
+    } catch (err) {
+      console.log(err);
+    }
+    setIsDuplicateBtnClick(true);
+  };
+
+  useEffect(() => {
+    const btn = setPossibleSignup({
+      id: userId.value,
+      pwd: userPwd.value,
+      nickname: userNickname.value,
+      isExit: isDuplicated,
+      onDuplicate: isDuplicateBtnClick,
+    });
+    setSignUpBtnState(btn);
+  }, [userId.value, userPwd.value, userNickname, isDuplicateBtnClick, isDuplicated]);
+
   return (
     <S.SignUpWrapper>
       <S.SignUpTitle>Sign Up</S.SignUpTitle>
@@ -51,7 +64,7 @@ const SignUp = () => {
           <S.LabelSpan> ID : </S.LabelSpan>
           <S.SignUpInput $wid={false} type="text" placeholder="아이디를 입력해주세요" {...userId} />
           {/* <S.DuplicationBtn>중복확인</S.DuplicationBtn> */}
-          <DuplicateCheckButton type={btnState}></DuplicateCheckButton>
+          <DuplicateCheckButton type="NEGATIVE" onClick={handleDuplicateBtn}></DuplicateCheckButton>
         </S.InputLabel>
         <S.InputLabel>
           <S.LabelSpan> 비밀번호 : </S.LabelSpan>
@@ -80,7 +93,7 @@ const SignUp = () => {
             {...userNickname}
           />
         </S.InputLabel>
-        <Button type="NEGATIVE" onClick={handleSignUp}>
+        <Button type={signUpBtnState} onClick={handleSignUp}>
           회원가입
         </Button>
       </S.SignUpFormWrapper>
