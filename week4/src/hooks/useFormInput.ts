@@ -3,6 +3,7 @@ type InputProps = {
   value: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
+
 const useFormInput = () => {
   const [value, setValue] = useState('');
 

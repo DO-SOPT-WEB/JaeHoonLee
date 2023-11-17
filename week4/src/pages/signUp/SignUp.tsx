@@ -8,20 +8,29 @@ import { setPossibleSignup } from '../../utils/setPossibleSignup';
 import DuplicateCheckButton from '../../components/atomComponents/DuplicateCheckButton';
 
 const SignUp = () => {
-  const userId = useFormInput();
+  const [isDuplicateBtnClick, setIsDuplicateBtnClick] = useState(false); //중복버튼 클릭 상태
+  // const userId = useFormInput();
+  const [userId, setUserId] = useState('');
   const userPwd = useFormInput();
   const checkUserPwd = useFormInput();
   const userNickname = useFormInput();
 
-  const [isDuplicateBtnClick, setIsDuplicateBtnClick] = useState(false);
-  const [isDuplicated, setIsDuplicated] = useState(false);
-  const [signUpBtnState, setSignUpBtnState] = useState('DEFAULT');
+  const [isExist, setIsExist] = useState(false); //중복여부
+  const [signUpBtnState, setSignUpBtnState] = useState('DEFAULT'); //회원가입 버튼 활성화 여부
+  const [duplicateBtnState, setDuplicateBtnState] = useState<'POSITIVE' | 'NEGATIVE' | 'DEFAULT'>(
+    'DEFAULT', //중복버튼 색상 상태
+  );
 
   const { routeTo } = useRouter();
+
+  const handleBtnState = (e) => {
+    setIsDuplicateBtnClick(false);
+    setUserId(e.target.value);
+  };
   const handleSignUp = async () => {
     try {
       const res = await client.post(`/api/v1/members`, {
-        username: userId.value,
+        username: userId,
         password: userPwd.value,
         nickname: userNickname.value,
       });
@@ -36,9 +45,8 @@ const SignUp = () => {
   //중복 확인 버튼
   const handleDuplicateBtn = async () => {
     try {
-      const res = await client.get(`api/v1/members/check?username=${userId.value}`);
-      console.log(res.data.isExist);
-      setIsDuplicated(res.data.isExist);
+      const res = await client.get(`api/v1/members/check?username=${userId}`);
+      setIsExist(res.data.isExist);
     } catch (err) {
       console.log(err);
     }
@@ -47,24 +55,43 @@ const SignUp = () => {
 
   useEffect(() => {
     const btn = setPossibleSignup({
-      id: userId.value,
+      id: userId,
       pwd: userPwd.value,
       nickname: userNickname.value,
-      isExit: isDuplicated,
+      isExit: isExist,
       onDuplicate: isDuplicateBtnClick,
     });
     setSignUpBtnState(btn);
-  }, [userId.value, userPwd.value, userNickname, isDuplicateBtnClick, isDuplicated]);
+  }, [userId, userPwd.value, userNickname, isDuplicateBtnClick, isExist]);
 
+  useEffect(() => {
+    console.log(isDuplicateBtnClick);
+    if (!isDuplicateBtnClick) {
+      setDuplicateBtnState('DEFAULT');
+    } else if (userId !== '' && isExist) {
+      setDuplicateBtnState('NEGATIVE');
+    } else if (userId !== '' && !isExist) {
+      setDuplicateBtnState('POSITIVE');
+    }
+  }, [userId, isExist, isDuplicateBtnClick]);
   return (
     <S.SignUpWrapper>
       <S.SignUpTitle>Sign Up</S.SignUpTitle>
       <S.SignUpFormWrapper>
         <S.InputLabel>
           <S.LabelSpan> ID : </S.LabelSpan>
-          <S.SignUpInput $wid={false} type="text" placeholder="아이디를 입력해주세요" {...userId} />
+          <S.SignUpInput
+            $wid={false}
+            type="text"
+            placeholder="아이디를 입력해주세요"
+            value={userId}
+            onChange={handleBtnState}
+          />
           {/* <S.DuplicationBtn>중복확인</S.DuplicationBtn> */}
-          <DuplicateCheckButton type="NEGATIVE" onClick={handleDuplicateBtn}></DuplicateCheckButton>
+          <DuplicateCheckButton
+            type={duplicateBtnState}
+            onClick={handleDuplicateBtn}
+          ></DuplicateCheckButton>
         </S.InputLabel>
         <S.InputLabel>
           <S.LabelSpan> 비밀번호 : </S.LabelSpan>
