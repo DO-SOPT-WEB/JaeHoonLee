@@ -17,7 +17,9 @@ const Login = () => {
         password: userPwd.value,
       });
 
-      console.log(res);
+      if (res.status === 200) {
+        routeTo(`/mypage/${res.data.id}`);
+      }
     } catch (err) {
       if (isAxiosError(err) && err.response) {
         if (err.response.status == 400) {
