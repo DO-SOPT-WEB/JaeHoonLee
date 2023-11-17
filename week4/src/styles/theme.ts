@@ -5,6 +5,8 @@ const colors = {
   mainWhite: '#ffffff',
   mainGrey: '#ececec',
   mainBlack: '#000000',
+  mainGreen: '#00ff80',
+  mainRed: '#ff0000',
 };
 
 const fontSize = {

@@ -2,12 +2,31 @@ import * as S from './SignUp.style';
 import Button from '../../components/atomComponents/Button';
 import useFormInput from '../../hooks/useFormInput';
 import useRouter from '../../hooks/useRouter';
+import { useState, useEffect } from 'react';
 import { client } from '../../apis/client';
+import { setPossibleSignup } from '../../utils/setPossibleSignup';
+import DuplicateCheckButton from '../../components/atomComponents/DuplicateCheckButton';
+
 const SignUp = () => {
   const userId = useFormInput();
   const userPwd = useFormInput();
   const checkUserPwd = useFormInput();
   const userNickname = useFormInput();
+
+  const [isDuplicateBtnClick, setIsDuplicateBtnClick] = useState(false);
+  const [isDuplicateExit, setDuplicateExit] = useState(false);
+  const [btnState, setBtnState] = useState('DEFAULT');
+
+  useEffect(() => {
+    const btn = setPossibleSignup(
+      userId,
+      userPwd,
+      userNickname,
+      isDuplicateBtnClick,
+      isDuplicateExit,
+    );
+    setBtnState(btn);
+  }, [userId, userPwd, userNickname, isDuplicateBtnClick, isDuplicateExit]);
 
   const { routeTo } = useRouter();
   const handleSignUp = async () => {
@@ -31,7 +50,8 @@ const SignUp = () => {
         <S.InputLabel>
           <S.LabelSpan> ID : </S.LabelSpan>
           <S.SignUpInput $wid={false} type="text" placeholder="아이디를 입력해주세요" {...userId} />
-          <S.DuplicationBtn>중복확인</S.DuplicationBtn>
+          {/* <S.DuplicationBtn>중복확인</S.DuplicationBtn> */}
+          <DuplicateCheckButton type={btnState}></DuplicateCheckButton>
         </S.InputLabel>
         <S.InputLabel>
           <S.LabelSpan> 비밀번호 : </S.LabelSpan>

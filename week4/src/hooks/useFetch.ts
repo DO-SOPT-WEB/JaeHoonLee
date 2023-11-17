@@ -21,7 +21,7 @@ const useFetch = ({ memberId }: FetchProps) => {
   useEffect(() => {
     setIsLoading(true);
     const response = get();
-    setData(response);
+
     setIsLoading(false);
   }, []);
 
