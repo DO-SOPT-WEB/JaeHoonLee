@@ -1,6 +1,8 @@
+import { checkPassword } from './\bcheckPassword';
 type PossibleSignUpProps = {
   id: string;
   pwd: string;
+  checkPwd: string;
   nickname: string;
   isExit: boolean;
   onDuplicate: boolean;
@@ -9,11 +11,13 @@ type PossibleSignUpProps = {
 export const setPossibleSignup = ({
   id,
   pwd,
+  checkPwd,
   nickname,
   isExit,
   onDuplicate,
 }: PossibleSignUpProps) => {
-  if (id !== '' && pwd !== '' && nickname !== '' && !isExit && onDuplicate) {
+  const samePwd = checkPassword(pwd, checkPwd);
+  if (id !== '' && pwd !== '' && nickname !== '' && !isExit && onDuplicate && samePwd) {
     return 'POSITIVE';
   } else {
     return 'NEGATIVE';

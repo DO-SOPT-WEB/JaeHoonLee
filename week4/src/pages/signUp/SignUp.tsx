@@ -57,6 +57,7 @@ const SignUp = () => {
     const btn = setPossibleSignup({
       id: userId,
       pwd: userPwd.value,
+      checkPwd: checkUserPwd.value,
       nickname: userNickname.value,
       isExit: isExist,
       onDuplicate: isDuplicateBtnClick,
