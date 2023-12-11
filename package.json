@@ -10,8 +10,5 @@
     "stylelint": "^15.10.3",
     "stylelint-config-concentric-order": "^5.2.0",
     "stylelint-config-recommended": "^13.0.0"
-  },
-  "dependencies": {
-    "styled-components": "^6.1.0"
   }
 }
